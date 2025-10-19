@@ -1,0 +1,408 @@
+@media all and (max-width:480px)
+{
+
+    body {
+        overflow-x: hidden;
+        width: 400px;
+    }
+	.tap__title
+	{
+		padding: 24px 0 0 0;
+		margin: 0;
+		text-align: center;
+		width: 100%;
+	}
+	svg {
+    width: 24px;
+    height: 14px;
+    fill: #fff;
+    stroke: #fff;
+    cursor: pointer;
+	}
+	button {
+    cursor: pointer;
+    position: relative;
+     margin-right: 0; 
+    font-size: 12px;
+     padding: 0; 
+    border: none;
+    outline: none;
+    background-color: transparent;
+	}
+	input[type=range].volume {
+    height: 2px;
+    background: linear-gradient(90deg, #ff55a5 0%, #ff5860 100%);
+    display: none;
+	}
+	.acc__phim{
+		display: block;
+	}
+	.account{
+		display: block;
+	}
+	.account__info {
+    /* background: #181818; */
+    width: 100%;
+    padding: 1%;
+	}
+	.acc__phim {
+    padding: 1%;
+    width: 100%;
+	}
+	.info__content {
+    width: 100%;
+	}
+	.play__info{
+		display: block;
+	}
+    .header__menu{
+        display: none;
+    }
+    .header{
+        padding: 0 20px;
+        font-size: 10px;
+        /* justify-content: space-between; */
+    }
+    .header__logo{
+        width: 45%;
+    }
+    .header__account{
+        width: 40px;
+        height: 20px;
+        font-size: 9px;
+        line-height: 20px;
+        /* padding: 2px 9px; */
+    }
+    .header__search{
+        margin-left: 100px;
+    }
+#searchArea {
+    position: absolute;
+    top: 40px;
+    right: -50px;
+}
+
+
+
+
+
+    .slider {
+        width: 100%;
+        height: 29vh;
+        box-shadow: 0 0 19px 0px black;
+        margin-top: 10vh;
+    }
+    .slide__content
+    {
+        font-size: 5px;
+        padding-left: 9px;
+        width: 40%;
+        line-height: 9px;
+    }
+    .slide{
+        height: 24vh;
+    }
+    .slide__content h2{
+        line-height: 9px;
+    }
+    .slide__title{
+        padding-top:29px;
+    padding-left: 9px;
+    padding-bottom: 9px;
+    }
+    .slider{
+        height: 24vh;
+        width: 100%;
+    }
+    .film__area__title{
+        font-size: 15px;
+    height: 45px;
+    }
+
+
+
+
+
+    .top__phim__title {
+        font-size: 19px;
+        margin: 0;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 30px;
+        padding: 45px 0 20px 0;
+        text-shadow: 0 0 20px pink;
+    }
+    .film__area{
+        width: 100%;
+        padding: 0;
+    }
+    .top__phim__pre{
+        display: none;
+    }
+
+
+
+
+    
+    .phim{
+        /* width: 90px; */
+        font-size: 9px;
+        /* width: 100px;
+        height: 160px; */
+        width: 100px;
+        margin: 9px;
+    }
+    .phim__img,.phim__hover{
+        width: 100px;
+        height: 160px;
+    }
+    .phim__play__btn{
+        display: none;
+    }
+    .phim__hover{
+        display: none;
+    }
+    .top__phim__area{
+        /* height: 209px; */
+        padding: 10px;
+    }
+    .fim__area__intro{
+        height: 90px;
+        font-size: 24px;
+    }
+    .sort__btn {
+        width: 65px;
+        height: 29px;
+        margin: 0;
+        font-size: 9px;
+    }
+    .flim__area__sort>div:not(:last-child){
+        cursor: pointer;
+        width: 90px;
+        margin: 0;
+        font-size: 9px;
+    }
+    .film__area__box{
+        margin: 0;
+        padding: 0;
+        font-size: 9px;
+    }
+    .top__phim__show{
+        z-index: 100;
+    }
+
+
+
+
+    .footer__info{
+        padding: 9px;
+        font-size: 9px;
+        /* display: block; */
+        height: 290px;
+    }
+    .footer__info h2{
+        font-size: 9px;
+        line-height: 14px;
+    }
+    .footer__info img{
+        width: 100%;
+        display: inline-block;
+        margin: 0;
+    }
+    .footer__info p{
+        font-size: 9px;
+        padding: 0;
+        line-height: 14px;
+    }
+    .footer__download{
+        /* width: 90px; */
+    }
+    .footer__info>div{
+        padding: 9px;
+        width: 20%;
+    }
+    .flim__area__sort {
+        display: flex;
+        align-items: center;
+        color: #FFFFFF;
+        position: relative;
+        height: 95px;
+        box-shadow: 0 0 20px 0px black;
+        padding: 10px;
+        justify-content: center;
+    }
+    .film__area__box {
+        margin: 0;
+        padding: 10px;
+        font-size: 9px;
+    }
+    .contact__social i {
+        cursor: pointer;
+        font-size: 9px;
+        color: #ff55a5;
+    }
+    .flim__area__sort>div>p {
+        font-size: 9px;
+        line-height: 14px;
+        color: rgba(255,255,255,0.5);
+    }
+    .sign-login{
+        /* width: 90%; */
+        /* left: 0; */
+        justify-content: center;
+    }
+    .sign-login__text{
+        display: none;
+    }
+    .login-sign__card{
+        width: 90%;
+        top: 19%;
+        left: 4%;
+    }
+    .header__menu--hide{
+        position: relative;
+        padding: 10px;
+        display: block;
+    }
+
+    .header__menu__hide{
+    position: absolute;
+    right: 0;
+    width: 190px;
+    box-shadow: 0 0 20px 0 black;
+    background: black;
+    /* display: none; */
+    }
+}
+
+@media all and (max-width:1024px)
+{
+    .header{
+        padding: 9px;
+    }
+    .header__items{
+        margin: 0;
+    }
+    .slider {
+        width: 100%;
+        height: 40vh;
+        box-shadow: 0 0 19px 0px black;
+        margin-top: 10vh;
+    }
+    .film__area__title {
+        width: 100%;
+        height: 70px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 29px;
+        color: antiquewhite;
+        background: url(https://dmitryvolkov.me/demo/flixgo2.0/main/img/section/section.jpg);
+        background-size: cover;
+        background-position: center center;
+        position: relative;
+        box-shadow: 0 0 20px 0 black;
+    }
+    .film__area {
+        width: 100%;
+        padding: 4px;
+        color: #fff;
+        /* height: 200vh; */
+        position: relative;
+    }
+    .top__phim__title {
+        display: inline-block;
+        /* margin-right: 65%; */
+    }
+    .top__phim__area {
+        width: 100%;
+        padding: 0;
+        /* display: flex; */
+        flex-wrap: wrap;
+        justify-content: space-around;
+        overflow: hidden;
+        transition: all 0.65s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        box-shadow: 0 0 20px 0px black;
+        /* padding: 10px 40px; */
+        box-sizing: content-box;
+    }
+	#searchArea {
+    position: absolute;
+    top: 40px;
+    right: -50px;
+}
+    .flim__area__sort {
+        font-size: 14px;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        color: #FFFFFF;
+        position: relative;
+        height: 95px;
+        box-shadow: 0 0 20px 0px black;
+        padding: 9px;
+    }
+    .film__area__box {
+        box-shadow: 0 0 20px 0 black;
+        flex-wrap: wrap;
+        /* margin: 20px 85px 20px 90px; */
+        padding: 45px;
+        position: relative;
+        transition: all 2s cubic-bezier(0.165, 0.84, 0.44, 1);
+        box-sizing: content-box;
+        overflow: hidden;
+    }
+	.info__content {
+    width: 100%;
+	}
+	.play__info{
+		display: block;
+	}
+	.acc__phim {
+    padding: 1%;
+    width: 100%;
+	}
+	.account{
+		display: block;
+	}
+	.acc__phim{
+		display: block;
+	}
+	
+	.account__info {
+    /* background: #181818; */
+    width: 100%;
+    padding: 1%;
+	}
+	button {
+    cursor: pointer;
+    position: relative;
+    /* margin-right: 7px; */
+    font-size: 12px;
+    /* padding: 3px; */
+    border: none;
+    outline: none;
+    background-color: transparent;
+	}
+	input[type=range].volume {
+    height: 2px;
+    background: linear-gradient(90deg, #ff55a5 0%, #ff5860 100%);
+    display: none;
+	}
+	svg {
+    width: 24px;
+    height: 14px;
+    fill: #fff;
+    stroke: #fff;
+    cursor: pointer;
+	}
+	.tap__title
+	{
+		padding: 24px 0 0 0;
+		margin: 0;
+		text-align: center;
+		width: 100%;
+	}
+}
