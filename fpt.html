@@ -1,79 +1,67 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Web xem phim online</title>
-	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<link rel="stylesheet" href="video.css">
-	<link rel="stylesheet" href="fpt.css">
-	<link rel="stylesheet" href="responsive.css">
-	<script>
-		$(document).ready(function(){
-  // Add smooth scrolling to all links
-  $("a").on('click', function(event) {
-
-    // Make sure this.hash has a value before overriding default behavior
-    if (this.hash !== "") {
-      // Prevent default anchor click behavior
-      event.preventDefault();
-
-      // Store hash
-      var hash = this.hash;
-
-      // Using jQuery's animate() method to add smooth page scroll
-      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-      $('html, body').animate({
-      	scrollTop: $(hash).offset().top
-      }, 800, function(){
-      	
-        // Add hash (#) to URL when done scrolling (default click behavior)
-        window.location.hash = hash;
-    });
-    } // End if
-});
-});
-</script>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-<link href="https://vjs.zencdn.net/7.10.2/video-js.css" rel="stylesheet" />
-<link rel="stylesheet" href="base.css">
-
-<!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
-<script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web xem phim online</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="video.css">
+    <link rel="stylesheet" href="fpt.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="comment.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://vjs.zencdn.net/7.10.2/video-js.css" rel="stylesheet" />
+    <link rel="stylesheet" href="base.css">
+    <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("a").on('click', function(event) {
+                if (this.hash !== "") {
+                    event.preventDefault();
+                    var hash = this.hash;
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 800, function(){
+                        window.location.hash = hash;
+                    });
+                }
+            });
+        });
+    </script>
 </head>
 <body>
-	
-	<div class="header">
-		<div class="header__logo" onclick="out();">
-			<a href="#a"><img src="img/logo.svg" alt=""></a>
-		</div>
+    
+    <div class="header">
+        <div class="header__logo" onclick="out();">
+            <a href="#a"><img src="img/logo.svg" alt=""></a>
+        </div>
 
-		<div class="header__menu">
-			<div class="header__items" onclick="out();"><a href="#a">trang chủ</a></div>
-			<div class="header__items" onclick="out();"><a href="#phim__bo">Phim bộ</a></div>
-			<div class="header__items" onclick="out();"><a href="#phim__le">phim lẻ</a></div>
-			<div class="header__items" onclick="out();"><a href="#phim__chieu__rap">phim chiếu rạp</a></div>
-			<div class="header__items" onclick="out();"><a href="#phim__hoat__hinh">phim hoạt hình</a></div>
-		</div>
+        <div class="header__menu">
+            <div class="header__items" onclick="out();"><a href="#a">trang chủ</a></div>
+            <div class="header__items" onclick="out();"><a href="#phim__bo">Phim bộ</a></div>
+            <div class="header__items" onclick="out();"><a href="#phim__le">phim lẻ</a></div>
+            <div class="header__items" onclick="out();"><a href="#phim__chieu__rap">phim chiếu rạp</a></div>
+            <div class="header__items" onclick="out();"><a href="#phim__hoat__hinh">phim hoạt hình</a></div>
+        </div>
 
-		<div class="header__search">
-			<i class="fas fa-search" id="iconSearch" onClick="showInput();"></i>
-			<div id="searchArea"> 
-			<input type="search" value="" id="inputSearch"  placeholder="Tìm kiếm..." onsearch="Search();" onkeyup="return goiY(event);" >
-				<div id="divSub">
-				<div class="goiY"  >
-					<div class="areaSubImg"></div>
-					<div class="areaSubTitle"></div>
-				</div>
-					
-				</div>
-			</div>
-		</div>
-	
-		<div class="header__account" onclick="call__dang__nhap();">Login</div>
-		<div class="header__menu--hide hide">
+        <div class="header__search">
+            <i class="fas fa-search" id="iconSearch" onClick="showInput();"></i>
+            <div id="searchArea"> 
+            <input type="search" value="" id="inputSearch"  placeholder="Tìm kiếm..." onsearch="Search();" onkeyup="return goiY(event);" >
+                <div id="divSub">
+                <div class="goiY"  >
+                    <div class="areaSubImg"></div>
+                    <div class="areaSubTitle"></div>
+                </div>
+                    
+                </div>
+            </div>
+        </div>
+    
+        <div class="header__account" onclick="call__dang__nhap();">Login</div>
+        <div class="header__menu--hide hide">
             <div class="header__menu-show" onclick="showheadermenu();">
                 <i class="fas fa-bars"></i>
                 <div class="header__menu__hide hide">
@@ -84,2062 +72,288 @@
                     <div class="header__items" onclick="out();"><a href="#phim__hoat__hinh">phim hoạt hình</a></div>
                 </div>
             </div>
-		</div>
-		<!-- <div class="header__menu--hide">
-			<div class="header__menu-show" onclick="showheadermenu();"><i class="fas fa-bars"></i></div>
-			div.header
-		</div> -->
-	</div>
-	<div class="slider" id="a">
-		<div class="slide__show">
-			<div class="slide__list">
-				<div class="slide slide--1" onclick="console.log(1);">
-					<div class="slide__title">
-						<img src="img/slide__title1.png" alt="">
-					</div>
-					<div class="slide__content">
-						<h2 style="color: #FFFFFF;">Ký ức Alhambra</h2>
-						<p>Khi tìm kiếm người sáng tạo bí ẩn của một trò chơi thực tế ảo tăng cường tân tiến, giám đốc doanh nghiệp đầu tư gặp một cô chủ nhà nghỉ ở Tây Ban Nha.<br>
-							<br><span style="color: #A3A3A3;">Diễn viên chính:</span> Hyun Bin,Park Shin Hye,Park Hoon
-							<br><span style="color: #A3A3A3;">Tác giả:</span> Song Jae Jung,An Gil Ho</p>
-						</div>
-					</div>
-					<div class="slide slide--2" onclick="console.log(2);">
-						<div class="slide__title">
-							<img src="img/slide__title2.png" alt="">
-						</div>
-						<div class="slide__content">
-							<h2 style="color: #FFFFFF;">Ký ức Alhambra</h2>
-							<p>Khi tìm kiếm người sáng tạo bí ẩn của một trò chơi thực tế ảo tăng cường tân tiến, giám đốc doanh nghiệp đầu tư gặp một cô chủ nhà nghỉ ở Tây Ban Nha.<br>
-								<br><span style="color: #A3A3A3;">Diễn viên chính:</span> Hyun Bin,Park Shin Hye,Park Hoon
-								<br><span style="color: #A3A3A3;">Tác giả:</span> Song Jae Jung,An Gil Ho</p>
-							</div>
-						</div>
-						<div class="slide slide--3" onclick="console.log(3);">
-							<div class="slide__title">
-								<img src="img/slide__title3.png" alt="">
-							</div>
-							<div class="slide__content">
-								<h2 style="color: #FFFFFF;">Ký ức Alhambra</h2>
-								<p>Khi tìm kiếm người sáng tạo bí ẩn của một trò chơi thực tế ảo tăng cường tân tiến, giám đốc doanh nghiệp đầu tư gặp một cô chủ nhà nghỉ ở Tây Ban Nha.<br>
-									<br><span style="color: #A3A3A3;">Diễn viên chính:</span> Hyun Bin,Park Shin Hye,Park Hoon
-									<br><span style="color: #A3A3A3;">Tác giả:</span> Song Jae Jung,An Gil Ho</p>
-								</div>
-							</div>
-							<div class="slide slide--4" onclick="console.log(4);">
-								<div class="slide__title">
-									<img src="img/slide__title4.png" alt="">
-								</div>
-								<div class="slide__content">
-									<h2 style="color: #FFFFFF;">Ký ức Alhambra</h2>
-									<p>Khi tìm kiếm người sáng tạo bí ẩn của một trò chơi thực tế ảo tăng cường tân tiến, giám đốc doanh nghiệp đầu tư gặp một cô chủ nhà nghỉ ở Tây Ban Nha.<br>
-										<br><span style="color: #A3A3A3;">Diễn viên chính:</span> Hyun Bin,Park Shin Hye,Park Hoon
-										<br><span style="color: #A3A3A3;">Tác giả:</span> Song Jae Jung,An Gil Ho</p>
-									</div>
-								</div>
-								<div class="slide slide--5" onclick="console.log(5);">
-									<div class="slide__title">
-										<img src="img/slide__title5.png" alt="">
-									</div>
-									<div class="slide__content">
-										<h2 style="color: #FFFFFF;">Ký ức Alhambra</h2>
-										<p>Khi tìm kiếm người sáng tạo bí ẩn của một trò chơi thực tế ảo tăng cường tân tiến, giám đốc doanh nghiệp đầu tư gặp một cô chủ nhà nghỉ ở Tây Ban Nha.<br>
-											<br><span style="color: #A3A3A3;">Diễn viên chính:</span> Hyun Bin,Park Shin Hye,Park Hoon
-											<br><span style="color: #A3A3A3;">Tác giả:</span> Song Jae Jung,An Gil Ho</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
+        </div>
+    </div>
 
+    <div class="slider" id="a">
+        <div class="slide__show">
+            <div class="slide__list">
+                <div class="slide slide--1">
+                    <div class="slide__title"><img src="img/slide__title1.png" alt=""></div>
+                    <div class="slide__content">
+                        <h2 style="color: #FFFFFF;">Ký ức Alhambra</h2>
+                        <p>Khi tìm kiếm người sáng tạo bí ẩn của một trò chơi thực tế ảo...</p>
+                    </div>
+                </div>
+                <div class="slide slide--2">
+                     <div class="slide__title"><img src="img/slide__title2.png" alt=""></div>
+                    <div class="slide__content"><h2 style="color: #FFFFFF;">Ký ức Alhambra</h2></div>
+                </div>
+                <div class="slide slide--3">
+                     <div class="slide__title"><img src="img/slide__title3.png" alt=""></div>
+                    <div class="slide__content"><h2 style="color: #FFFFFF;">Ký ức Alhambra</h2></div>
+                </div>
+                <div class="slide slide--4">
+                     <div class="slide__title"><img src="img/slide__title4.png" alt=""></div>
+                    <div class="slide__content"><h2 style="color: #FFFFFF;">Ký ức Alhambra</h2></div>
+                </div>
+                 <div class="slide slide--5">
+                     <div class="slide__title"><img src="img/slide__title5.png" alt=""></div>
+                    <div class="slide__content"><h2 style="color: #FFFFFF;">Ký ức Alhambra</h2></div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-						<div class="film__area__title">ĐỀ CỬ</div>
-						<div class="film__area film__area--home">
-							<div class="film__area__img"></div>
-							<div class="top__phim__bo top__phim">
-								<h2 class="top__phim__bo__title top__phim__title">TOP PHIM BỘ</h2>
-								<div class="top__phim__bo__area top__phim__area">
-									
-								</div>
-								<div class="top__phim__show top__phim__bo__show" onclick="fill__next(this,0);">Show</div>
-							</div>
+    <div class="film__area__title">ĐỀ CỬ</div>
+    <div class="film__area film__area--home">
+        <div class="film__area__img"></div>
+        
+        <div class="top__phim__bo top__phim">
+            <h2 class="top__phim__bo__title top__phim__title">TOP PHIM BỘ</h2>
+            <div class="top__phim__bo__area top__phim__area"></div>
+            <div class="top__phim__show top__phim__bo__show" onclick="fill__next(this,0);">Show</div>
+        </div>
 
+        <div class="top__phim__le top__phim">
+            <h2 class="top__phim__le__title top__phim__title">TOP PHIM LẺ</h2>
+            <div class="top__phim__le__area top__phim__area"></div>
+            <div class="top__phim__show top__phim__le__show" onclick="fill__next(this,1);">Show</div>
+        </div>
 
-							<div class="top__phim__le top__phim">
-								<h2 class="top__phim__le__title top__phim__title">TOP PHIM LẺ</h2>
-								<div class="top__phim__le__area top__phim__area">
-									
-								</div>
-								<div class="top__phim__show top__phim__le__show" onclick="fill__next(this,1);">Show</div>
-							</div>
+        <div class="top__phim__chieu__rap top__phim">
+            <h2 class="top__phim__chieu__rap__title top__phim__title">TOP PHIM CHIẾU RẠP</h2>
+            <div class="top__phim__chieu__rap__area top__phim__area"></div>
+            <div class="top__phim__show top__phim__chieu__rap__show" onclick="fill__next(this,2);">Show</div>
+        </div>
 
+        <div class="top__phim__hoat__hinh top__phim">
+            <h2 class="top__phim__hoat__hinh__title top__phim__title">TOP PHIM HOẠT HÌNH</h2>
+            <div class="top__phim__hoat__hinh__area top__phim__area"></div>
+            <div class="top__phim__show top__phim__hoat__hinh__show" onclick="fill__next(this,3);">Show</div>
+        </div>
+    </div>
 
-							
+    <div class="film__area--add film__area--phim__bo">
+        <div class="fim__area__intro" id="phim__bo">PHIM BỘ</div>
+        <div class="film__area__img film__area__bg--phim__bo"></div>
+        <div class="flim__area__sort">
+            <div class="sort__style">
+                <p>Quốc Gia</p>
+                <div class="sort__content">
+                    <p class="sort__info">Hàn Quốc</p><span></span>
+                    <div class="sort__sub">
+                        <div class="sort__items">Hàn Quốc </div>
+                        <div class="sort__items">Hoa Ngữ</div>
+                        <div class="sort__items">Hồng Kông</div>
+                    </div>
+                </div>
+            </div>
+            <div class="sort__btn">Bộ Lọc</div>
+        </div>
+        <div class="film__area__box film__area__box--phim__bo"></div>
+        <div class="phim__area__next phim__area__next__phim__bo" onclick="fill__next(this,4);">Show</div>
+    </div>
 
-							<div class="top__phim__chieu__rap top__phim">
-								<h2 class="top__phim__chieu__rap__title top__phim__title">TOP PHIM CHIẾU RẠP</h2>
-								<div class="top__phim__chieu__rap__area top__phim__area">
-									
-								</div>
-								<div class="top__phim__show top__phim__chieu__rap__show" onclick="fill__next(this,2);">Show</div>
-							</div>
+    <div class="film__area--add film__area--phim__le">
+        <div class="fim__area__intro" id="phim__le">PHIM LẺ</div>
+        <div class="film__area__box film__area__box--phim__le"></div>
+        <div class="phim__area__next phim__area__next__phim__le" onclick="fill__next(this,5);">Show</div>
+    </div>
 
+    <div class="film__area--add film__area--phim__chieu__rap">
+        <div class="fim__area__intro" id="phim__chieu__rap">PHIM CHIẾU RẠP</div>
+        <div class="film__area__box film__area__box--phim__chieu__rap"></div>
+        <div class="phim__area__next phim__area__next__phim__chieu__rap" onclick="fill__next(this,6);">Show</div>
+    </div>
 
+    <div class="film__area--add film__area--phim__hoat__hinh">
+        <div class="fim__area__intro" id="phim__hoat__hinh">PHIM HOẠT HÌNH</div>
+        <div class="film__area__box film__area__box--phim__hoat__hinh"></div>
+        <div class="phim__area__next phim__area__next__phim__hoat__hinh" onclick="fill__next(this,7);">Show</div>
+    </div>
 
+    <div class="footer">
+        <div class="footer__info"> 
+            <div class="footer__download">
+                <h2>Download Our App</h2>
+                <img src="img/footer__apple.svg" alt="">
+                <img src="img/footer__android.png" alt="">
+            </div>
+            <div class="footer__link">
+                <h2>Nội dung</h2>
+                <p><a href="#phim__bo">Phim Bộ</a></p>
+                <p><a href="#phim__le">Phim Lẻ</a></p>
+                <p><a href="#phim__chieu__rap">Phim Chiếu Rạp</a></p>
+                <p><a href="#phim__hoat__hinh">Phim Hoạt Hình</a></p>
+            </div>
+            <div class="footer__contact">
+                <h2>Liên Hệ</h2>
+                <p>Email: netflix@gmail.com.vn</p>
+            </div>
+        </div>
+    </div>
 
-							<div class="top__phim__hoat__hinh top__phim">
-								<h2 class="top__phim__hoat__hinh__title top__phim__title">TOP PHIM HOẠT HÌNH</h2>
-								<div class="top__phim__hoat__hinh__area top__phim__area">
-									
-								</div>
-								<div class="top__phim__show top__phim__hoat__hinh__show" onclick="fill__next(this,3);">Show</div>
-							</div>
-						</div>
-
-						<div class="film__area--add film__area--phim__bo">
-							<div class="fim__area__intro" id="phim__bo">
-								PHIM BỘ
-							</div>
-							<div class="film__area__img film__area__bg--phim__bo"></div>
-							<div class="flim__area__sort">
-								<div class="sort__style">
-									<p>Quốc Gia</p>
-									<div class="sort__content">
-										<p class="sort__info">Hàn Quốc</p>
-										<span></span>
-										<div class="sort__sub">
-											<div class="sort__items" onclick="sort__act__phim__bo('han__quoc');">Hàn Quốc </div>
-											<div class="sort__items" onclick="sort__act__phim__bo('hoa__ngu');">Hoa Ngữ</div>
-											<div class="sort__items" onclick="sort__act__phim__bo('hong__kong');">Hồng Kông</div>
-<!--											<div class="sort__items" onclick="sort__act__phim__bo(this,this.parentNode.parentNode);">Gây cấn</div>-->
-										</div>
-									</div>
-								</div>
-								<div class="sort__quality">
-									<p>Phân giải</p>
-									<div class="sort__content">
-										<p>HD 1080</p>
-										<span></span>
-										<div class="sort__sub">
-											<div class="sort__items" onclick="sort__act(this,this.parentNode.parentNode);">HD+</div>
-											<div class="sort__items" onclick="sort__act(this,this.parentNode.parentNode);">FULL HD</div>
-											<div class="sort__items" onclick="sort__act(this,this.parentNode.parentNode);">4K</div>
-											<div class="sort__items" onclick="sort__act(this,this.parentNode.parentNode);">HD 720</div>
-										</div>
-									</div>
-								</div>
-								<div class="sort__point">
-									<p>Rating</p>
-									<div class="sort__content">
-										<p>7.0-10.0</p>
-										<span></span>
-										<div class="sort__sub">
-											<div class="sort__items" onclick="sort__act(this,this.parentNode.parentNode);">7.0-10.0</div>
-											<div class="sort__items" onclick="sort__act(this,this.parentNode.parentNode);">5.0-7.0</div>
-										</div>
-									</div>
-								</div>
-								<div class="sort__btn">Bộ Lọc</div>
-							</div>
-
-							<div class="film__area__box film__area__box--phim__bo">
-								<!-- <div class="film__area__list"> -->
-									
-								</div>
-								<div class="phim__area__next phim__area__next__phim__bo" onclick="fill__next(this,4);">
-									Show
-								</div>
-							</div>
-
-
-
-
-							<div class="film__area--add film__area--phim__le">
-								<!-- <div class="film__area__img"></div> -->
-								<div class="fim__area__intro" id="phim__le">
-									PHIM LẺ
-								</div>
-								<div class="flim__area__sort">
-									<div class="sort__style">
-										<p>Thể loại</p>
-										<div class="sort__content">
-											<p class="sort__info">Hành Động</p>
-											<span></span>
-											<div class="sort__sub">
-												<div class="sort__items" onclick="sort__act__phim__le('hai__huoc');">Hài hước</div>
-												<div class="sort__items" onclick="sort__act__phim__le('phieu__luu');">Phiêu lưu</div>
-												<div class="sort__items" onclick="sort__act__phim__le('hanh__dong');">Hành động</div>
-<!--												<div class="sort__items" onclick="sort__act(this,this.parentNode.parentNode);">Gây cấn</div>-->
-											</div>
-										</div>
-									</div>
-									<div class="sort__quality">
-										<p>Phân giải</p>
-										<div class="sort__content">
-											<p>HD 1080</p>
-											<span></span>
-											<div class="sort__sub">
-												<div class="sort__items" onclick="sort__act(this,this.parentNode.parentNode);">HD+</div>
-												<div class="sort__items" onclick="sort__act(this,this.parentNode.parentNode);">FULL HD</div>
-												<div class="sort__items" onclick="sort__act(this,this.parentNode.parentNode);">4K</div>
-												<div class="sort__items" onclick="sort__act(this,this.parentNode.parentNode);">HD 720</div>
-											</div>
-										</div>
-									</div>
-									<div class="sort__point">
-										<p>Rating</p>
-										<div class="sort__content">
-											<p>7.0-10.0</p>
-											<span></span>
-											<div class="sort__sub">
-												<div class="sort__items" onclick="sort__act(this,this.parentNode.parentNode);">7.0-10.0</div>
-												<div class="sort__items" onclick="sort__act(this,this.parentNode.parentNode);">5.0-7.0</div>
-											</div>
-										</div>
-									</div>
-									<div class="sort__btn" onclick="sort(this.parentNode.parentNode);">Bộ Lọc</div>
-								</div>
-
-								<div class="film__area__box film__area__box--phim__le">
-									
-								</div>
-								<div class="phim__area__next phim__area__next__phim__le" onclick="fill__next(this,5);">
-									Show
-								</div>
-							</div>
-
-
-
-
-
-
-							<div class="film__area--add film__area--phim__chieu__rap">
-								<!-- <div class="film__area__img"></div> -->
-								<div class="fim__area__intro" id="phim__chieu__rap">
-									PHIM CHIẾU RẠP
-								</div>
-								<div class="flim__area__sort">
-									<div class="sort__style">
-										<p>Thể loại</p>
-										<div class="sort__content">
-											<p class="sort__info">Hành Động</p>
-											<span></span>
-											<div class="sort__sub">
-												<div class="sort__items" onclick="sort__act__phim__chieu__rap('hai__huoc');">Hài hước</div>
-												<div class="sort__items" onclick="sort__act__phim__chieu__rap('phieu__luu');">Phiêu lưu</div>
-												<div class="sort__items" onclick="sort__act__phim__chieu__rap('hanh__dong');">Hành động</div>
-<!--												<div class="sort__items" onclick="sort__act(this,this.parentNode.parentNode);">Gây cấn</div>-->
-											</div>
-										</div>
-									</div>
-									<div class="sort__quality">
-										<p>Phân giải</p>
-										<div class="sort__content">
-											<p>HD 1080</p>
-											<span></span>
-											<div class="sort__sub">
-												<div class="sort__items" onclick="sort__act(this,this.parentNode.parentNode);">HD+</div>
-												<div class="sort__items" onclick="sort__act(this,this.parentNode.parentNode);">FULL HD</div>
-												<div class="sort__items" onclick="sort__act(this,this.parentNode.parentNode);">4K</div>
-												<div class="sort__items" onclick="sort__act(this,this.parentNode.parentNode);">HD 720</div>
-											</div>
-										</div>
-									</div>
-									<div class="sort__point">
-										<p>Rating</p>
-										<div class="sort__content">
-											<p>7.0-10.0</p>
-											<span></span>
-											<div class="sort__sub">
-												<div class="sort__items" onclick="sort__act(this,this.parentNode.parentNode);">7.0-10.0</div>
-												<div class="sort__items" onclick="sort__act(this,this.parentNode.parentNode);">5.0-7.0</div>
-											</div>
-										</div>
-									</div>
-									<div class="sort__btn" onclick="sort(this.parentNode.parentNode);">Bộ Lọc</div>
-								</div>
-
-								<div class="film__area__box film__area__box--phim__chieu__rap">
-									
-								</div>
-								<div class="phim__area__next phim__area__next__phim__chieu__rap" onclick="fill__next(this,6);">
-									Show
-								</div>
-							</div>
-
-
-							<div class="film__area--add film__area--phim__hoat__hinh">
-								<!-- <div class="film__area__img"></div> -->
-								<div class="fim__area__intro" id="phim__hoat__hinh">
-									PHIM HOẠT HÌNH
-								</div>
-								<div class="flim__area__sort">
-									<div class="sort__style">
-										<p>Thể loại</p>
-										<div class="sort__content">
-											<p>Hành Động</p>
-											<span></span>
-											<div class="sort__sub">
-												<div class="sort__items" onclick="sort__act__phim__hoat__hinh('hai__huoc');">Hài hước</div>
-												<div class="sort__items" onclick="sort__act__phim__hoat__hinh('phieu__luu');">Phiêu lưu</div>
-												<div class="sort__items" onclick="sort__act__phim__hoat__hinh('hanh__dong');">Hành động</div>
-<!--												<div class="sort__items" onclick="sort__act(this,this.parentNode.parentNode);">Gây cấn</div>-->
-											</div>
-										</div>
-									</div>
-									<div class="sort__quality">
-										<p>Phân giải</p>
-										<div class="sort__content">
-											<p>HD 1080</p>
-											<span></span>
-											<div class="sort__sub">
-												<div class="sort__items" onclick="sort__act(this,this.parentNode.parentNode);">HD+</div>
-												<div class="sort__items" onclick="sort__act(this,this.parentNode.parentNode);">FULL HD</div>
-												<div class="sort__items" onclick="sort__act(this,this.parentNode.parentNode);">4K</div>
-												<div class="sort__items" onclick="sort__act(this,this.parentNode.parentNode);">HD 720</div>
-											</div>
-										</div>
-									</div>
-									<div class="sort__point">
-										<p>Rating</p>
-										<div class="sort__content">
-											<p>7.0-10.0</p>
-											<span></span>
-											<div class="sort__sub">
-												<div class="sort__items" onclick="sort__act(this,this.parentNode.parentNode);">7.0-10.0</div>
-												<div class="sort__items" onclick="sort__act(this,this.parentNode.parentNode);">5.0-7.0</div>
-											</div>
-										</div>
-									</div>
-									<div class="sort__btn" onclick="sort(this.parentNode.parentNode);">Bộ Lọc</div>
-								</div>
-
-								<div class="film__area__box film__area__box--phim__hoat__hinh">
-									
-								</div>
-								<div class="phim__area__next phim__area__next__phim__hoat__hinh" onclick="fill__next(this,7);">
-									Show
-								</div>
-							</div>
-							
-							<div class="footer">
-								<div class="footer__info"> 
-									<div class="footer__download">
-										<h2>Download Our App</h2>
-										<img src="img/footer__apple.svg" alt="">
-										<img src="img/footer__android.png" alt="">
-									</div>
-									<div class="footer__link">
-										<h2>Nội dung</h2>
-										<p><a href="#phim__bo">Phim Bộ</a></p>
-										<p><a href="#phim__le">Phim Lẻ</a></p>
-										<p><a href="#phim__chieu__rap">Phim Chiếu Rạp</a></p>
-										<p><a href="#phim__hoat__hinh">Phim Hoạt Hình</a></p>
-									</div>
-									<div class="footer__legal">
-										<h2>Legal</h2>
-										<p>Terms of Use</p>
-										<p>Privacy Policy</p>
-										<p>Security</p>
-									</div>
-									<div class="footer__contact">
-										<h2>Liên Hệ | Hợp Tác</h2>
-										<p>+(84) 1900 1000</p>
-										<p>Email: netflix@gmail.com.vn</p>
-										<div class="contact__social">
-											<i class="fab fa-facebook"></i>
-											<i class="fab fa-instagram"></i>
-											<i class="fab fa-twitter"></i>
-											<i class="fab fa-youtube"></i>
-										</div>
-									</div>
-								</div>
-							</div>
-
-
-							<div class="sign-login">
-								<div class="sign-login__text">
-									<p>Chương trình truyền hình, phim không giới hạn và nhiều nội dung khác.</p>
-								</div>
-								<div class="sign__up__card login-sign__card">
-									<h2 class="sign-login__title sign__up-title">ĐĂNG KÝ</h2>
-									<input type="text" class="sign__up-name" placeholder="Họ Và Tên">
-									<input type="text" class="sign__up-email" placeholder="Email">
-									<div class="sign__up-pass">
-										<input type="password" class="sign__up-password" placeholder="Nhập Mật Khẩu">
-										<div class="pass--show" onclick="show__pass(this.parentNode.parentNode)"><i class="fas fa-eye"></i></div>
-									</div>
-									<div class="sign__up-pass">
-										<input type="password" class="sign__up-repassword" placeholder="Nhập Lại Mật Khẩu">
-										<div class="pass--show"  onclick="show__pass(this.parentNode.parentNode)"><i class="fas fa-eye"></i></div>
-									</div>
-									<button class="login-sign-btn" onclick="dang__ky()">SIGN</button>
-									<div class="sign-or-login"  onclick="chuyen__card__login__sign()">
-										<p>Bạn đã có tài khoản?</p>
-									</div>
-								</div>
-
-								<div class="login__card hide login-sign__card">
-									<h2 class="sign-login__title login-title">LOGIN</h2>
-									<input type="text" class="login-name" placeholder="Email">
-									<div class="login-pass">
-										<input type="password" class="login-password" placeholder="Nhập Mật Khẩu">
-										<div class="pass--show" onclick="show__pass(this.parentNode.parentNode)"><i class="fas fa-eye"></i></div>
-									</div>
-									<button class="login-sign-btn" onclick="dang__nhap()">LOGIN</button>
-									<div class="sign-or-login"  onclick="chuyen__card__login__sign()">
-										<p>Bạn chưa có tài khoản?</p>
-									</div>
-								</div>
-							</div>
-
-
-
-							
-							<div class="account" >
-								<div class="account__info">
-									<p class="info__title">Thông tin cá nhân</p>
-									<p><span style=" color: #ff55a5;font-size: 14px;">họ và tên:</span><span class="account__ten">ấdfdsfsdf</span></p>
-									<p><span style=" color: #ff55a5;font-size: 14px;"> Email:</span><span class="account__email">dfsfsdfsdfsd</span></p>
-									<p class="info__pass">Đổi pass</p>
-									<div onclick="log();" class="log">Log</div>
-								</div>
-								<div class="acc__phim">
-									<p class="info__title">Các phim</p>
-									<div></div>
-								</div>
-							</div>
-						</div>
-						<div class="play__area">
-							<div class="play">
-								<div class="container">
-									<div class="video-container" id="video-container">
-										<div class="playback-animation" id="playback-animation">
-											<svg class="playback-icons">
-												<use class="hidden" href="#play-icon"></use>
-												<use href="#pause"></use>
-											</svg>
-										</div>
-										
-										<video controls class="video" id="video" preload="metadata" poster="poster.jpg">
-											<source src="img/video1.mp4" type="video/mp4"></source>
-										</video>
-										
-										<div class="video-controls hidden" id="video-controls" >
-											<div class="left-controls">
-												<button data-title="Play (k)" id="play">
-													<svg class="playback-icons">
-														<use href="#play-icon"></use>
-														<use class="hidden" href="#pause"></use>
-													</svg>
-												</button>
-												
-												<div class="volume-controls">
-													<button data-title="Mute (m)" class="volume-button" id="volume-button">
-														<svg>
-															<use class="hidden" href="#volume-mute"></use>
-															<use class="hidden" href="#volume-low"></use>
-															<use href="#volume-high"></use>
-														</svg>
-													</button>
-													
-													<input class="volume" id="volume" value="1"
-													data-mute="0.5" type="range" max="1" min="0" step="0.01">
-												</div>
-												
-												<div class="time">
-													<time id="time-elapsed">00:00</time>
-													<span> / </span>
-													<time id="duration">00:00</time>
-												</div>
-											</div>
-											<div class="video-progress" onclick="getScreenshot(1)">
-												<progress id="progress-bar" value="0" min="0"></progress>
-												<input class="seek" id="seek" value="0" min="0" type="range" step="1">
-												<div class="seek-tooltip" id="seek-tooltip">00:00</div>
-											</div>
-
-											<div class="right-controls">
-												<button data-title="PIP (p)" class="pip-button" id="pip-button">
-													<svg>
-														<use href="#pip"></use>
-													</svg>
-												</button>
-												<button data-title="Full screen (f)" class="fullscreen-button" id="fullscreen-button">
-													<svg>
-														<use href="#fullscreen"></use>
-														<use href="#fullscreen-exit" class="hidden"></use>
-													</svg>
-												</button>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							
-							<svg style="display: none">
-								<defs>
-									<symbol id="pause" viewBox="0 0 24 24">
-										<path d="M14.016 5.016h3.984v13.969h-3.984v-13.969zM6 18.984v-13.969h3.984v13.969h-3.984z"></path>
-									</symbol>
-									
-									<symbol id="play-icon" viewBox="0 0 24 24">
-										<path d="M8.016 5.016l10.969 6.984-10.969 6.984v-13.969z"></path>
-									</symbol>
-									
-									<symbol id="volume-high" viewBox="0 0 24 24">
-										<path d="M14.016 3.234q3.047 0.656 5.016 3.117t1.969 5.648-1.969 5.648-5.016 3.117v-2.063q2.203-0.656 3.586-2.484t1.383-4.219-1.383-4.219-3.586-2.484v-2.063zM16.5 12q0 2.813-2.484 4.031v-8.063q1.031 0.516 1.758 1.688t0.727 2.344zM3 9h3.984l5.016-5.016v16.031l-5.016-5.016h-3.984v-6z"></path>
-									</symbol>
-									
-									<symbol id="volume-low" viewBox="0 0 24 24">
-										<path d="M5.016 9h3.984l5.016-5.016v16.031l-5.016-5.016h-3.984v-6zM18.516 12q0 2.766-2.531 4.031v-8.063q1.031 0.516 1.781 1.711t0.75 2.32z"></path>
-									</symbol>
-									
-									<symbol id="volume-mute" viewBox="0 0 24 24">
-										<path d="M12 3.984v4.219l-2.109-2.109zM4.266 3l16.734 16.734-1.266 1.266-2.063-2.063q-1.547 1.313-3.656 1.828v-2.063q1.172-0.328 2.25-1.172l-4.266-4.266v6.75l-5.016-5.016h-3.984v-6h4.734l-4.734-4.734zM18.984 12q0-2.391-1.383-4.219t-3.586-2.484v-2.063q3.047 0.656 5.016 3.117t1.969 5.648q0 2.203-1.031 4.172l-1.5-1.547q0.516-1.266 0.516-2.625zM16.5 12q0 0.422-0.047 0.609l-2.438-2.438v-2.203q1.031 0.516 1.758 1.688t0.727 2.344z"></path>
-									</symbol>
-									
-									<symbol id="fullscreen" viewBox="0 0 24 24">
-										<path d="M14.016 5.016h4.969v4.969h-1.969v-3h-3v-1.969zM17.016 17.016v-3h1.969v4.969h-4.969v-1.969h3zM5.016 9.984v-4.969h4.969v1.969h-3v3h-1.969zM6.984 14.016v3h3v1.969h-4.969v-4.969h1.969z"></path>
-									</symbol>
-									
-									<symbol id="fullscreen-exit" viewBox="0 0 24 24">
-										<path d="M15.984 8.016h3v1.969h-4.969v-4.969h1.969v3zM14.016 18.984v-4.969h4.969v1.969h-3v3h-1.969zM8.016 8.016v-3h1.969v4.969h-4.969v-1.969h3zM5.016 15.984v-1.969h4.969v4.969h-1.969v-3h-3z"></path>
-									</symbol>
-									
-									<symbol id="pip" viewBox="0 0 24 24">
-										<path d="M21 19.031v-14.063h-18v14.063h18zM23.016 18.984q0 0.797-0.609 1.406t-1.406 0.609h-18q-0.797 0-1.406-0.609t-0.609-1.406v-14.016q0-0.797 0.609-1.383t1.406-0.586h18q0.797 0 1.406 0.586t0.609 1.383v14.016zM18.984 11.016v6h-7.969v-6h7.969z"></path>
-									</symbol>
-								</defs>
-                            </svg>
-                            <p  class="tap__title">Tập Phim</p>
-                            <div class="tap__phim">
-                                <!-- <p>Tap</p> -->
-                                <div class="tap tap__active" tap__phim="" onClick="play__tap(1);">Tập 1</div>
-                                <div class="tap" tap__phim="" onClick="play__tap(2);">Tập 2</div>
+    <div class="play__area">
+        <div class="play">
+            <div class="container">
+                <div class="video-container" id="video-container">
+                    <div class="playback-animation" id="playback-animation">
+                        <svg class="playback-icons">
+                            <use class="hidden" href="#play-icon"></use>
+                            <use href="#pause"></use>
+                        </svg>
+                    </div>
+                    
+                    <video controls class="video" id="video" preload="metadata" poster="poster.jpg">
+                        <source src="img/video1.mp4" type="video/mp4"></source>
+                    </video>
+                    
+                    <div class="video-controls hidden" id="video-controls" >
+                        <div class="left-controls">
+                            <button data-title="Play (k)" id="play">
+                                <svg class="playback-icons">
+                                    <use href="#play-icon"></use>
+                                    <use class="hidden" href="#pause"></use>
+                                </svg>
+                            </button>
+                            <div class="volume-controls">
+                                <button data-title="Mute (m)" class="volume-button" id="volume-button">
+                                    <svg>
+                                        <use class="hidden" href="#volume-mute"></use>
+                                        <use class="hidden" href="#volume-low"></use>
+                                        <use href="#volume-high"></use>
+                                    </svg>
+                                </button>
+                                <input class="volume" id="volume" value="1" data-mute="0.5" type="range" max="1" min="0" step="0.01">
                             </div>
-                            <div class="play__info">
-                                <div class="info__img"></div>
-                                <div class="info__content">
-                                    <h3>Bạn Trai Tôi Là Hồ Ly</h3>
-                                    <p><span>Tale of the Nine-tailed</span></p>
-                                    <p style="color: #A3A3A3;">
-                                        Nội dung:
-                                    </p>
-                                    <p>
-                                        Bạn Trai Tôi Là Hồ Ly xoay quanh Yi Yeon (Lee Dong Wook), cửu vĩ hồ từng cai trị dãy núi Baekdudaegan như vị thần giám hộ, nhưng hiện đang sống ở thành phố. Anh có nhiệm vụ giám sát và trừng phạt những yêu quái gây hại đến cuộc sống của loài người. Anh phải chống lại sự truy lùng ráo riết của nữ đạo diễn Nam Ji Ah (Jo Bo Ah thủ vai). Bên cạnh đó, Yi Rang (Kim Bum), anh trai cùng cha khác mẹ của Yi Yeon, mang một nửa dòng máu con người. Yi Rang là một hồ ly tinh nguy hiểm với những cảm xúc thay đổi thất thường, người sẽ mang đến xung đột cho câu chuyện.
-                                    </p>
-                                </div>
-                                <div class="play__info1">
-                                    <p><span>   Số tập</span>	14/16</p>
-                                    <p><span>Thời lượng</span>	60 phút</p>
-                                    <p><span> Diễn viên</span>	Lee Dong Wook, Jo Bo Ah, Kim Bum, Ahn Gil Kang  </p>
-                                    <p><span> Quốc gia</span>	Hàn Quốc</p>
-                                    <p><span> Thể loại</span>	Hàn Quốc </p>
-                                    <p><span> Phát hành</span>	7/10/2020</p>
-                                </div>
+                            <div class="time">
+                                <time id="time-elapsed">00:00</time>
+                                <span> / </span>
+                                <time id="duration">00:00</time>
                             </div>
+                        </div>
+                        <div class="video-progress" onclick="getScreenshot(1)">
+                            <progress id="progress-bar" value="0" min="0"></progress>
+                            <input class="seek" id="seek" value="0" min="0" type="range" step="1">
+                            <div class="seek-tooltip" id="seek-tooltip">00:00</div>
+                        </div>
+                        <div class="right-controls">
+                            <button data-title="PIP (p)" class="pip-button" id="pip-button">
+                                <svg><use href="#pip"></use></svg>
+                            </button>
+                            <button data-title="Full screen (f)" class="fullscreen-button" id="fullscreen-button">
+                                <svg>
+                                    <use href="#fullscreen"></use>
+                                    <use href="#fullscreen-exit" class="hidden"></use>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <svg style="display: none">
+            <defs>
+                <symbol id="pause" viewBox="0 0 24 24"><path d="M14.016 5.016h3.984v13.969h-3.984v-13.969zM6 18.984v-13.969h3.984v13.969h-3.984z"></path></symbol>
+                <symbol id="play-icon" viewBox="0 0 24 24"><path d="M8.016 5.016l10.969 6.984-10.969 6.984v-13.969z"></path></symbol>
+                <symbol id="volume-high" viewBox="0 0 24 24"><path d="M14.016 3.234q3.047 0.656 5.016 3.117t1.969 5.648-1.969 5.648-5.016 3.117v-2.063q2.203-0.656 3.586-2.484t1.383-4.219-1.383-4.219-3.586-2.484v-2.063zM16.5 12q0 2.813-2.484 4.031v-8.063q1.031 0.516 1.758 1.688t0.727 2.344zM3 9h3.984l5.016-5.016v16.031l-5.016-5.016h-3.984v-6z"></path></symbol>
+                <symbol id="volume-low" viewBox="0 0 24 24"><path d="M5.016 9h3.984l5.016-5.016v16.031l-5.016-5.016h-3.984v-6zM18.516 12q0 2.766-2.531 4.031v-8.063q1.031 0.516 1.781 1.711t0.75 2.32z"></path></symbol>
+                <symbol id="volume-mute" viewBox="0 0 24 24"><path d="M12 3.984v4.219l-2.109-2.109zM4.266 3l16.734 16.734-1.266 1.266-2.063-2.063q-1.547 1.313-3.656 1.828v-2.063q1.172-0.328 2.25-1.172l-4.266-4.266v6.75l-5.016-5.016h-3.984v-6h4.734l-4.734-4.734zM18.984 12q0-2.391-1.383-4.219t-3.586-2.484v-2.063q3.047 0.656 5.016 3.117t1.969 5.648q0 2.203-1.031 4.172l-1.5-1.547q0.516-1.266 0.516-2.625zM16.5 12q0 0.422-0.047 0.609l-2.438-2.438v-2.203q1.031 0.516 1.758 1.688t0.727 2.344z"></path></symbol>
+                <symbol id="fullscreen" viewBox="0 0 24 24"><path d="M14.016 5.016h4.969v4.969h-1.969v-3h-3v-1.969zM17.016 17.016v-3h1.969v4.969h-4.969v-1.969h3zM5.016 9.984v-4.969h4.969v1.969h-3v3h-1.969zM6.984 14.016v3h3v1.969h-4.969v-4.969h1.969z"></path></symbol>
+                <symbol id="fullscreen-exit" viewBox="0 0 24 24"><path d="M15.984 8.016h3v1.969h-4.969v-4.969h1.969v3zM14.016 18.984v-4.969h4.969v1.969h-3v3h-1.969zM8.016 8.016v-3h1.969v4.969h-4.969v-1.969h3zM5.016 15.984v-1.969h4.969v4.969h-1.969v-3h-3z"></path></symbol>
+                <symbol id="pip" viewBox="0 0 24 24"><path d="M21 19.031v-14.063h-18v14.063h18zM23.016 18.984q0 0.797-0.609 1.406t-1.406 0.609h-18q-0.797 0-1.406-0.609t-0.609-1.406v-14.016q0-0.797 0.609-1.383t1.406-0.586h18q0.797 0 1.406 0.586t0.609 1.383v14.016zM18.984 11.016v6h-7.969v-6h7.969z"></path></symbol>
+            </defs>
+        </svg>
+        
+        <p class="tap__title">Tập Phim</p>
+        <div class="tap__phim">
+            <div class="tap tap__active" tap__phim="" onClick="play__tap(1);">Tập 1</div>
+            <div class="tap" tap__phim="" onClick="play__tap(2);">Tập 2</div>
+        </div>
+        <div class="play__info">
+            <div class="info__img"></div>
+            <div class="info__content">
+                <h3>Bạn Trai Tôi Là Hồ Ly</h3>
+                <p><span>Tale of the Nine-tailed</span></p>
+                <p style="color: #A3A3A3;">Nội dung:</p>
+                <p>Bạn Trai Tôi Là Hồ Ly xoay quanh Yi Yeon...</p>
+            </div>
+            <div class="play__info1">
+                <p><span>Số tập</span> 14/16</p>
+                <p><span>Thời lượng</span> 60 phút</p>
+                <p><span>Diễn viên</span> Lee Dong Wook, Jo Bo Ah...</p>
+                <p><span>Quốc gia</span> Hàn Quốc</p>
+                <p><span>Thể loại</span> Tình cảm</p>
+                <p><span>Phát hành</span> 2020</p>
+            </div>
+        </div>
 
-                            <!-- RATING & COMMENTS SECTION -->
-                            <div class="review__section">
-                                <!-- Rating Summary -->
-                                <div class="rating__summary">
-                                    <h3 class="section__title">Đánh Giá Phim</h3>
-                                    <div class="rating__overview">
-                                        <div class="rating__score">
-                                            <div class="score__number" id="averageRating">4.5</div>
-                                            <div class="score__stars">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star-half-alt"></i>
-                                            </div>
-                                            <div class="score__count"><span id="totalReviews">128</span> đánh giá</div>
-                                        </div>
-                                        <div class="rating__distribution">
-                                            <div class="rating__bar">
-                                                <span class="bar__label">5 <i class="fas fa-star"></i></span>
-                                                <div class="bar__container">
-                                                    <div class="bar__fill" style="width: 75%"></div>
-                                                </div>
-                                                <span class="bar__count">96</span>
-                                            </div>
-                                            <div class="rating__bar">
-                                                <span class="bar__label">4 <i class="fas fa-star"></i></span>
-                                                <div class="bar__container">
-                                                    <div class="bar__fill" style="width: 15%"></div>
-                                                </div>
-                                                <span class="bar__count">19</span>
-                                            </div>
-                                            <div class="rating__bar">
-                                                <span class="bar__label">3 <i class="fas fa-star"></i></span>
-                                                <div class="bar__container">
-                                                    <div class="bar__fill" style="width: 5%"></div>
-                                                </div>
-                                                <span class="bar__count">6</span>
-                                            </div>
-                                            <div class="rating__bar">
-                                                <span class="bar__label">2 <i class="fas fa-star"></i></span>
-                                                <div class="bar__container">
-                                                    <div class="bar__fill" style="width: 3%"></div>
-                                                </div>
-                                                <span class="bar__count">4</span>
-                                            </div>
-                                            <div class="rating__bar">
-                                                <span class="bar__label">1 <i class="fas fa-star"></i></span>
-                                                <div class="bar__container">
-                                                    <div class="bar__fill" style="width: 2%"></div>
-                                                </div>
-                                                <span class="bar__count">3</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+        <div class="review__section">
+            <div class="rating__summary">
+                <h3 class="section__title">Đánh Giá Phim</h3>
+                <div class="rating__overview">
+                    <div class="rating__score">
+                        <div class="score__number" id="averageRating">0.0</div>
+                        <div class="score__stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="score__count"><span id="totalReviews">0</span> đánh giá</div>
+                    </div>
+                    </div>
+            </div>
 
-                                <!-- User Rating Input -->
-                                <div class="user__rating">
-                                    <h4>Đánh giá của bạn</h4>
-                                    <div class="star__rating">
-                                        <i class="far fa-star" data-rating="1"></i>
-                                        <i class="far fa-star" data-rating="2"></i>
-                                        <i class="far fa-star" data-rating="3"></i>
-                                        <i class="far fa-star" data-rating="4"></i>
-                                        <i class="far fa-star" data-rating="5"></i>
-                                    </div>
-                                    <p class="rating__message" id="ratingMessage">Chọn số sao để đánh giá</p>
-                                </div>
+            <div class="user__rating">
+                <h4>Đánh giá của bạn</h4>
+                <div class="star__rating">
+                    <i class="far fa-star" data-rating="1"></i>
+                    <i class="far fa-star" data-rating="2"></i>
+                    <i class="far fa-star" data-rating="3"></i>
+                    <i class="far fa-star" data-rating="4"></i>
+                    <i class="far fa-star" data-rating="5"></i>
+                </div>
+                <p class="rating__message" id="ratingMessage">Chọn số sao để đánh giá</p>
+            </div>
 
-                                <!-- Comments Section -->
-                                <div class="comments__section">
-                                    <h3 class="section__title">Bình Luận <span class="comment__count" id="commentCount">(45)</span></h3>
-                                    
-                                    <!-- Add Comment Form -->
-                                    <div class="add__comment">
-                                        <div class="comment__avatar">
-                                            <i class="fas fa-user-circle"></i>
-                                        </div>
-                                        <div class="comment__form">
-                                            <textarea id="commentInput" placeholder="Viết bình luận của bạn..." rows="3"></textarea>
-                                            <div class="form__actions">
-                                                <button class="btn__cancel" onclick="clearComment()">Hủy</button>
-                                                <button class="btn__submit" onclick="submitComment()">Gửi bình luận</button>
-                                            </div>
-                                        </div>
-                                    </div>
+            <div class="comments__section">
+                <h3 class="section__title">Bình Luận <span class="comment__count" id="commentCount">(0)</span></h3>
+                
+                <div class="add__comment">
+                    <div class="comment__avatar"><i class="fas fa-user-circle"></i></div>
+                    <div class="comment__form">
+                        <textarea id="commentInput" placeholder="Viết bình luận của bạn..." rows="3"></textarea>
+                        <div class="form__actions">
+                            <button class="btn__cancel" onclick="clearComment()">Hủy</button>
+                            <button class="btn__submit" onclick="submitComment()">Gửi bình luận</button>
+                        </div>
+                    </div>
+                </div>
 
-                                    <!-- Comments List -->
-                                    <div class="comments__list" id="commentsList">
-                                        <!-- Sample Comments -->
-                                        <div class="comment__item">
-                                            <div class="comment__avatar">
-                                                <i class="fas fa-user-circle"></i>
-                                            </div>
-                                            <div class="comment__content">
-                                                <div class="comment__header">
-                                                    <span class="comment__author">Nguyễn Văn A</span>
-                                                    <span class="comment__rating">
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                    </span>
-                                                    <span class="comment__time">2 giờ trước</span>
-                                                </div>
-                                                <p class="comment__text">Phim rất hay và hấp dẫn! Diễn xuất của Lee Dong Wook thật tuyệt vời. Cốt truyện lôi cuốn từ đầu đến cuối.</p>
-                                                <div class="comment__actions">
-                                                    <button class="btn__like"><i class="far fa-thumbs-up"></i> Thích <span>(24)</span></button>
-                                                    <button class="btn__reply"><i class="far fa-comment"></i> Trả lời</button>
-                                                </div>
-                                            </div>
-                                        </div>
+                <div class="comments__list" id="commentsList">
+                    <p style="text-align:center; color: #777; margin-top: 20px;">Đang tải bình luận...</p>
+                </div>
+            </div>
+        </div>
+        </div>
 
-                                        <div class="comment__item">
-                                            <div class="comment__avatar">
-                                                <i class="fas fa-user-circle"></i>
-                                            </div>
-                                            <div class="comment__content">
-                                                <div class="comment__header">
-                                                    <span class="comment__author">Trần Thị B</span>
-                                                    <span class="comment__rating">
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="far fa-star"></i>
-                                                    </span>
-                                                    <span class="comment__time">5 giờ trước</span>
-                                                </div>
-                                                <p class="comment__text">Chemistry giữa hai diễn viên chính rất tốt. Tuy nhiên, một số tập ở giữa hơi kéo dài.</p>
-                                                <div class="comment__actions">
-                                                    <button class="btn__like"><i class="far fa-thumbs-up"></i> Thích <span>(12)</span></button>
-                                                    <button class="btn__reply"><i class="far fa-comment"></i> Trả lời</button>
-                                                </div>
-                                            </div>
-                                        </div>
+    <div class="film__area--add film__area--phim__hoat__hinh" id="divSearch">
+        <div class="fim__area__intro">KẾT QUẢ</div>
+        <div class="film__area__box"></div>
+    </div> 
+            
+    <div class="load">loading</div>
 
-                                        <div class="comment__item">
-                                            <div class="comment__avatar">
-                                                <i class="fas fa-user-circle"></i>
-                                            </div>
-                                            <div class="comment__content">
-                                                <div class="comment__header">
-                                                    <span class="comment__author">Lê Hoàng C</span>
-                                                    <span class="comment__rating">
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                    </span>
-                                                    <span class="comment__time">1 ngày trước</span>
-                                                </div>
-                                                <p class="comment__text">Một trong những bộ phim hay nhất mà tôi từng xem. Kỹ xảo đẹp mắt, nội dung sâu sắc!</p>
-                                                <div class="comment__actions">
-                                                    <button class="btn__like"><i class="far fa-thumbs-up"></i> Thích <span>(36)</span></button>
-                                                    <button class="btn__reply"><i class="far fa-comment"></i> Trả lời</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+    <script src="https://www.gstatic.com/firebasejs/12.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.6.0/firebase-auth-compat.js"></script>
 
-                                    <!-- Load More Button -->
-                                    <div class="load__more">
-                                        <button class="btn__load__more" onclick="loadMoreComments()">Xem thêm bình luận</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- END RATING & COMMENTS -->
-						
-						<div id__phim="" onclick="play__video(this);" class="phim phim__bo han__quoc">
-							<div class="phim__img">
-							</div>
-							<div class="phim__content">
-								<div class="phim__title">Bạn Trai Tôi Là Hồ Li</div>
-								<div class="phim__type">Phim bộ</div>
-								<div class="phim__style">Hàn Quốc</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__bo hoa__ngu">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Kết Hôn Rồi Bắt Đầu Yêu - Begin Again</div>
-								<div class="phim__type">Phim bộ</div>
-								<div class="phim__style">Hoa Ngữ</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__bo hong__kong">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Hình Cảnh Quốc Tế</div>
-								<div class="phim__type">Phim bộ</div>
-								<div class="phim__style">Hồng kông</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__bo dai__loan">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Đại Thời Đại</div>
-								<div class="phim__type">Phim bộ</div>
-								<div class="phim__style">Đài Loan</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__bo han__quoc">
-							<div class="phim__img">
-							</div>
-							<div class="phim__content">
-								<div class="phim__title">Chỉ Có Thể Là Yêu - It's Okay, That's Love</div>
-								<div class="phim__type">Phim bộ</div>
-								<div class="phim__style">Hàn Quốc</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__bo hoa__ngu">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Kết Hôn Rồi Bắt Đầu Yêu - Begin Again</div>
-								<div class="phim__type">Phim bộ</div>
-								<div class="phim__style">Hoa Ngữ</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__bo hong__kong">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Hình Cảnh Quốc Tế</div>
-								<div class="phim__type">Phim bộ</div>
-								<div class="phim__style">Hồng kông</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__bo dai__loan">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Đại Thời Đại</div>
-								<div class="phim__type">Phim bộ</div>
-								<div class="phim__style">Đài Loan</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__bo han__quoc">
-							<div class="phim__img">
-							</div>
-							<div class="phim__content">
-								<div class="phim__title">Chỉ Có Thể Là Yêu - It's Okay, That's Love</div>
-								<div class="phim__type">Phim bộ</div>
-								<div class="phim__style">Hàn Quốc</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__bo hoa__ngu">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Kết Hôn Rồi Bắt Đầu Yêu - Begin Again</div>
-								<div class="phim__type">Phim bộ</div>
-								<div class="phim__style">Hoa Ngữ</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__bo hong__kong">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Hình Cảnh Quốc Tế</div>
-								<div class="phim__type">Phim bộ</div>
-								<div class="phim__style">Hồng kông</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__bo dai__loan">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Đại Thời Đại</div>
-								<div class="phim__type">Phim bộ</div>
-								<div class="phim__style">Đài Loan</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__bo han__quoc">
-							<div class="phim__img">
-							</div>
-							<div class="phim__content">
-								<div class="phim__title">Chỉ Có Thể Là Yêu - It's Okay, That's Love</div>
-								<div class="phim__type">Phim bộ</div>
-								<div class="phim__style">Hàn Quốc</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__bo hoa__ngu">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Kết Hôn Rồi Bắt Đầu Yêu - Begin Again</div>
-								<div class="phim__type">Phim bộ</div>
-								<div class="phim__style">Hoa Ngữ</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__bo hong__kong">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Hình Cảnh Quốc Tế</div>
-								<div class="phim__type">Phim bộ</div>
-								<div class="phim__style">Hồng kông</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__bo dai__loan">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Đại Thời Đại</div>
-								<div class="phim__type">Phim bộ</div>
-								<div class="phim__style">Đài Loan</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__bo han__quoc">
-							<div class="phim__img">
-							</div>
-							<div class="phim__content">
-								<div class="phim__title">Chỉ Có Thể Là Yêu - It's Okay, That's Love</div>
-								<div class="phim__type">Phim bộ</div>
-								<div class="phim__style">Hàn Quốc</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__bo hoa__ngu">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Kết Hôn Rồi Bắt Đầu Yêu - Begin Again</div>
-								<div class="phim__type">Phim bộ</div>
-								<div class="phim__style">Hoa Ngữ</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__bo hong__kong">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Hình Cảnh Quốc Tế</div>
-								<div class="phim__type">Phim bộ</div>
-								<div class="phim__style">Hồng kông</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__bo dai__loan">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Đại Thời Đại</div>
-								<div class="phim__type">Phim bộ</div>
-								<div class="phim__style">Đài Loan</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__bo han__quoc">
-							<div class="phim__img">
-							</div>
-							<div class="phim__content">
-								<div class="phim__title">Chỉ Có Thể Là Yêu - It's Okay, That's Love</div>
-								<div class="phim__type">Phim bộ</div>
-								<div class="phim__style">Hàn Quốc</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__bo hoa__ngu">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Kết Hôn Rồi Bắt Đầu Yêu - Begin Again</div>
-								<div class="phim__type">Phim bộ</div>
-								<div class="phim__style">Hoa Ngữ</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__bo hong__kong">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Hình Cảnh Quốc Tế</div>
-								<div class="phim__type">Phim bộ</div>
-								<div class="phim__style">Hồng kông</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__bo dai__loan">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Đại Thời Đại</div>
-								<div class="phim__type">Phim bộ</div>
-								<div class="phim__style">Đài Loan</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__bo han__quoc">
-							<div class="phim__img">
-							</div>
-							<div class="phim__content">
-								<div class="phim__title">Chỉ Có Thể Là Yêu - It's Okay, That's Love</div>
-								<div class="phim__type">Phim bộ</div>
-								<div class="phim__style">Hàn Quốc</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__bo hoa__ngu">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Kết Hôn Rồi Bắt Đầu Yêu - Begin Again</div>
-								<div class="phim__type">Phim bộ</div>
-								<div class="phim__style">Hoa Ngữ</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__bo hong__kong">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Hình Cảnh Quốc Tế</div>
-								<div class="phim__type">Phim bộ</div>
-								<div class="phim__style">Hồng kông</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__bo dai__loan">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Đại Thời Đại</div>
-								<div class="phim__type">Phim bộ</div>
-								<div class="phim__style">Đài Loan</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__bo han__quoc">
-							<div class="phim__img">
-							</div>
-							<div class="phim__content">
-								<div class="phim__title">Chỉ Có Thể Là Yêu - It's Okay, That's Love</div>
-								<div class="phim__type">Phim bộ</div>
-								<div class="phim__style">Hàn Quốc</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__bo hoa__ngu">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Kết Hôn Rồi Bắt Đầu Yêu - Begin Again</div>
-								<div class="phim__type">Phim bộ</div>
-								<div class="phim__style">Hoa Ngữ</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__bo hong__kong">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Hình Cảnh Quốc Tế</div>
-								<div class="phim__type">Phim bộ</div>
-								<div class="phim__style">Hồng kông</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__bo dai__loan">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Đại Thời Đại</div>
-								<div class="phim__type">Phim bộ</div>
-								<div class="phim__style">Đài Loan</div>
-							</div>
-						</div>
-						<!-- phim -->
-						<div id__phim="" onclick="play__video(this);" class="phim phim__le hanh__dong">
-							<div class="phim__img">
-							</div>
-							<div class="phim__content">
-								<div class="phim__title">Chỉ Có Thể Là Yêu - It's Okay, That's Love</div>
-								<div class="phim__type">Phim lẻ</div>
-								<div class="phim__style">Hành động</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__le hai__huoc">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Kết Hôn Rồi Bắt Đầu Yêu - Begin Again</div>
-								<div class="phim__type">Phim lẻ</div>
-								<div class="phim__style">Hài hước</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__le kinh di">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Hình Cảnh Quốc Tế</div>
-								<div class="phim__type">Phim lẻ</div>
-								<div class="phim__style">Kinh dị</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__le phieu__luu">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Đại Thời Đại</div>
-								<div class="phim__type">Phim lẻ</div>
-								<div class="phim__style">Phiêu lưu</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__hoat__hinh hanh__dong">
-							<div class="phim__img">
-							</div>
-							<div class="phim__content">
-								<div class="phim__title">Chỉ Có Thể Là Yêu - It's Okay, That's Love</div>
-								<div class="phim__type">Phim hoạt hình</div>
-								<div class="phim__style">Hành động</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__hoat__hinh hai__huoc">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Kết Hôn Rồi Bắt Đầu Yêu - Begin Again</div>
-								<div class="phim__type">Phim hoạt hình</div>
-								<div class="phim__style">Hài hước</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__hoat__hinh phieu__luu">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Hình Cảnh Quốc Tế</div>
-								<div class="phim__type">Phim hoạt hình</div>
-								<div class="phim__style">Phiêu lưu</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__hoat__hinh kinh__di">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Đại Thời Đại</div>
-								<div class="phim__type">Phim hoạt hình</div>
-								<div class="phim__style">Kinh dị</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__chieu__rap hanh__dong">
-							<div class="phim__img">
-							</div>
-							<div class="phim__content">
-								<div class="phim__title">Chỉ Có Thể Là Yêu - It's Okay, That's Love</div>
-								<div class="phim__type">Phim chiếu rạp</div>
-								<div class="phim__style">Hành động</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__chieu__rap hai__huoc">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Kết Hôn Rồi Bắt Đầu Yêu - Begin Again</div>
-								<div class="phim__type">Phim chiếu rạp</div>
-								<div class="phim__style">Hài hước</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__chieu__rap phieu__luu">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Hình Cảnh Quốc Tế</div>
-								<div class="phim__type">Phim chiếu rạp</div>
-								<div class="phim__style">Phiêu lưu</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__chieu__rap kinh__di">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Hình Cảnh Quốc Tế</div>
-								<div class="phim__type">Phim chiếu rạp</div>
-								<div class="phim__style">Kinh dị</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__le hanh__dong">
-							<div class="phim__img">
-							</div>
-							<div class="phim__content">
-								<div class="phim__title">Chỉ Có Thể Là Yêu - It's Okay, That's Love</div>
-								<div class="phim__type">Phim lẻ</div>
-								<div class="phim__style">Hành động</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__le hai__huoc">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Kết Hôn Rồi Bắt Đầu Yêu - Begin Again</div>
-								<div class="phim__type">Phim lẻ</div>
-								<div class="phim__style">Hài hước</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__le kinh di">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Hình Cảnh Quốc Tế</div>
-								<div class="phim__type">Phim lẻ</div>
-								<div class="phim__style">Kinh dị</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__le phieu__luu">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Đại Thời Đại</div>
-								<div class="phim__type">Phim lẻ</div>
-								<div class="phim__style">Phiêu lưu</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__hoat__hinh hanh__dong">
-							<div class="phim__img">
-							</div>
-							<div class="phim__content">
-								<div class="phim__title">Chỉ Có Thể Là Yêu - It's Okay, That's Love</div>
-								<div class="phim__type">Phim hoạt hình</div>
-								<div class="phim__style">Hành động</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__hoat__hinh hai__huoc">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Kết Hôn Rồi Bắt Đầu Yêu - Begin Again</div>
-								<div class="phim__type">Phim hoạt hình</div>
-								<div class="phim__style">Hài hước</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__hoat__hinh phieu__luu">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Hình Cảnh Quốc Tế</div>
-								<div class="phim__type">Phim hoạt hình</div>
-								<div class="phim__style">Phiêu lưu</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__hoat__hinh kinh__di">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Đại Thời Đại</div>
-								<div class="phim__type">Phim hoạt hình</div>
-								<div class="phim__style">Kinh dị</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__chieu__rap hanh__dong">
-							<div class="phim__img">
-							</div>
-							<div class="phim__content">
-								<div class="phim__title">Chỉ Có Thể Là Yêu - It's Okay, That's Love</div>
-								<div class="phim__type">Phim chiếu rạp</div>
-								<div class="phim__style">Hành động</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__chieu__rap hai__huoc">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Kết Hôn Rồi Bắt Đầu Yêu - Begin Again</div>
-								<div class="phim__type">Phim chiếu rạp</div>
-								<div class="phim__style">Hài hước</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__chieu__rap phieu__luu">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Hình Cảnh Quốc Tế</div>
-								<div class="phim__type">Phim chiếu rạp</div>
-								<div class="phim__style">Phiêu lưu</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__chieu__rap kinh__di">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Hình Cảnh Quốc Tế</div>
-								<div class="phim__type">Phim chiếu rạp</div>
-								<div class="phim__style">Kinh dị</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__le hanh__dong">
-							<div class="phim__img">
-							</div>
-							<div class="phim__content">
-								<div class="phim__title">Chỉ Có Thể Là Yêu - It's Okay, That's Love</div>
-								<div class="phim__type">Phim lẻ</div>
-								<div class="phim__style">Hành động</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__le hai__huoc">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Kết Hôn Rồi Bắt Đầu Yêu - Begin Again</div>
-								<div class="phim__type">Phim lẻ</div>
-								<div class="phim__style">Hài hước</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__le kinh di">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Hình Cảnh Quốc Tế</div>
-								<div class="phim__type">Phim lẻ</div>
-								<div class="phim__style">Kinh dị</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__le phieu__luu">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Đại Thời Đại</div>
-								<div class="phim__type">Phim lẻ</div>
-								<div class="phim__style">Phiêu lưu</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__hoat__hinh hanh__dong">
-							<div class="phim__img">
-							</div>
-							<div class="phim__content">
-								<div class="phim__title">Chỉ Có Thể Là Yêu - It's Okay, That's Love</div>
-								<div class="phim__type">Phim hoạt hình</div>
-								<div class="phim__style">Hành động</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__hoat__hinh hai__huoc">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Kết Hôn Rồi Bắt Đầu Yêu - Begin Again</div>
-								<div class="phim__type">Phim hoạt hình</div>
-								<div class="phim__style">Hài hước</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__hoat__hinh phieu__luu">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Hình Cảnh Quốc Tế</div>
-								<div class="phim__type">Phim hoạt hình</div>
-								<div class="phim__style">Phiêu lưu</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__hoat__hinh kinh__di">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Đại Thời Đại</div>
-								<div class="phim__type">Phim hoạt hình</div>
-								<div class="phim__style">Kinh dị</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__chieu__rap hanh__dong">
-							<div class="phim__img">
-							</div>
-							<div class="phim__content">
-								<div class="phim__title">Chỉ Có Thể Là Yêu - It's Okay, That's Love</div>
-								<div class="phim__type">Phim chiếu rạp</div>
-								<div class="phim__style">Hành động</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__chieu__rap hai__huoc">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Kết Hôn Rồi Bắt Đầu Yêu - Begin Again</div>
-								<div class="phim__type">Phim chiếu rạp</div>
-								<div class="phim__style">Hài hước</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__chieu__rap phieu__luu">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Hình Cảnh Quốc Tế</div>
-								<div class="phim__type">Phim chiếu rạp</div>
-								<div class="phim__style">Phiêu lưu</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__chieu__rap kinh__di">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Hình Cảnh Quốc Tế</div>
-								<div class="phim__type">Phim chiếu rạp</div>
-								<div class="phim__style">Kinh dị</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__le hanh__dong">
-							<div class="phim__img">
-							</div>
-							<div class="phim__content">
-								<div class="phim__title">Chỉ Có Thể Là Yêu - It's Okay, That's Love</div>
-								<div class="phim__type">Phim lẻ</div>
-								<div class="phim__style">Hành động</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__le hai__huoc">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Kết Hôn Rồi Bắt Đầu Yêu - Begin Again</div>
-								<div class="phim__type">Phim lẻ</div>
-								<div class="phim__style">Hài hước</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__le kinh di">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Hình Cảnh Quốc Tế</div>
-								<div class="phim__type">Phim lẻ</div>
-								<div class="phim__style">Kinh dị</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__le phieu__luu">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Đại Thời Đại</div>
-								<div class="phim__type">Phim lẻ</div>
-								<div class="phim__style">Phiêu lưu</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__hoat__hinh hanh__dong">
-							<div class="phim__img">
-							</div>
-							<div class="phim__content">
-								<div class="phim__title">Chỉ Có Thể Là Yêu - It's Okay, That's Love</div>
-								<div class="phim__type">Phim hoạt hình</div>
-								<div class="phim__style">Hành động</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__hoat__hinh hai__huoc">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Kết Hôn Rồi Bắt Đầu Yêu - Begin Again</div>
-								<div class="phim__type">Phim hoạt hình</div>
-								<div class="phim__style">Hài hước</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__hoat__hinh phieu__luu">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Hình Cảnh Quốc Tế</div>
-								<div class="phim__type">Phim hoạt hình</div>
-								<div class="phim__style">Phiêu lưu</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__hoat__hinh kinh__di">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Đại Thời Đại</div>
-								<div class="phim__type">Phim hoạt hình</div>
-								<div class="phim__style">Kinh dị</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__chieu__rap hanh__dong">
-							<div class="phim__img">
-							</div>
-							<div class="phim__content">
-								<div class="phim__title">Chỉ Có Thể Là Yêu - It's Okay, That's Love</div>
-								<div class="phim__type">Phim chiếu rạp</div>
-								<div class="phim__style">Hành động</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__chieu__rap hai__huoc">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Kết Hôn Rồi Bắt Đầu Yêu - Begin Again</div>
-								<div class="phim__type">Phim chiếu rạp</div>
-								<div class="phim__style">Hài hước</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__chieu__rap phieu__luu">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Hình Cảnh Quốc Tế</div>
-								<div class="phim__type">Phim chiếu rạp</div>
-								<div class="phim__style">Phiêu lưu</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__chieu__rap kinh__di">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Hình Cảnh Quốc Tế</div>
-								<div class="phim__type">Phim chiếu rạp</div>
-								<div class="phim__style">Kinh dị</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__le hanh__dong">
-							<div class="phim__img">
-							</div>
-							<div class="phim__content">
-								<div class="phim__title">Chỉ Có Thể Là Yêu - It's Okay, That's Love</div>
-								<div class="phim__type">Phim lẻ</div>
-								<div class="phim__style">Hành động</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__le hai__huoc">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Kết Hôn Rồi Bắt Đầu Yêu - Begin Again</div>
-								<div class="phim__type">Phim lẻ</div>
-								<div class="phim__style">Hài hước</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__le kinh di">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Hình Cảnh Quốc Tế</div>
-								<div class="phim__type">Phim lẻ</div>
-								<div class="phim__style">Kinh dị</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__le phieu__luu">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Đại Thời Đại</div>
-								<div class="phim__type">Phim lẻ</div>
-								<div class="phim__style">Phiêu lưu</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__hoat__hinh hanh__dong">
-							<div class="phim__img">
-							</div>
-							<div class="phim__content">
-								<div class="phim__title">Chỉ Có Thể Là Yêu - It's Okay, That's Love</div>
-								<div class="phim__type">Phim hoạt hình</div>
-								<div class="phim__style">Hành động</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__hoat__hinh hai__huoc">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Kết Hôn Rồi Bắt Đầu Yêu - Begin Again</div>
-								<div class="phim__type">Phim hoạt hình</div>
-								<div class="phim__style">Hài hước</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__hoat__hinh phieu__luu">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Hình Cảnh Quốc Tế</div>
-								<div class="phim__type">Phim hoạt hình</div>
-								<div class="phim__style">Phiêu lưu</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__hoat__hinh kinh__di">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Đại Thời Đại</div>
-								<div class="phim__type">Phim hoạt hình</div>
-								<div class="phim__style">Kinh dị</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__chieu__rap hanh__dong">
-							<div class="phim__img">
-							</div>
-							<div class="phim__content">
-								<div class="phim__title">Chỉ Có Thể Là Yêu - It's Okay, That's Love</div>
-								<div class="phim__type">Phim chiếu rạp</div>
-								<div class="phim__style">Hành động</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__chieu__rap hai__huoc">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Kết Hôn Rồi Bắt Đầu Yêu - Begin Again</div>
-								<div class="phim__type">Phim chiếu rạp</div>
-								<div class="phim__style">Hài hước</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__chieu__rap phieu__luu">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Hình Cảnh Quốc Tế</div>
-								<div class="phim__type">Phim chiếu rạp</div>
-								<div class="phim__style">Phiêu lưu</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__chieu__rap kinh__di">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Hình Cảnh Quốc Tế</div>
-								<div class="phim__type">Phim chiếu rạp</div>
-								<div class="phim__style">Kinh dị</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__le hanh__dong">
-							<div class="phim__img">
-							</div>
-							<div class="phim__content">
-								<div class="phim__title">Chỉ Có Thể Là Yêu - It's Okay, That's Love</div>
-								<div class="phim__type">Phim lẻ</div>
-								<div class="phim__style">Hành động</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__le hai__huoc">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Kết Hôn Rồi Bắt Đầu Yêu - Begin Again</div>
-								<div class="phim__type">Phim lẻ</div>
-								<div class="phim__style">Hài hước</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__le kinh di">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Hình Cảnh Quốc Tế</div>
-								<div class="phim__type">Phim lẻ</div>
-								<div class="phim__style">Kinh dị</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__le phieu__luu">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Đại Thời Đại</div>
-								<div class="phim__type">Phim lẻ</div>
-								<div class="phim__style">Phiêu lưu</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__hoat__hinh hanh__dong">
-							<div class="phim__img">
-							</div>
-							<div class="phim__content">
-								<div class="phim__title">Chỉ Có Thể Là Yêu - It's Okay, That's Love</div>
-								<div class="phim__type">Phim hoạt hình</div>
-								<div class="phim__style">Hành động</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__hoat__hinh hai__huoc">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Kết Hôn Rồi Bắt Đầu Yêu - Begin Again</div>
-								<div class="phim__type">Phim hoạt hình</div>
-								<div class="phim__style">Hài hước</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__hoat__hinh phieu__luu">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Hình Cảnh Quốc Tế</div>
-								<div class="phim__type">Phim hoạt hình</div>
-								<div class="phim__style">Phiêu lưu</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__hoat__hinh kinh__di">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Đại Thời Đại</div>
-								<div class="phim__type">Phim hoạt hình</div>
-								<div class="phim__style">Kinh dị</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__chieu__rap hanh__dong">
-							<div class="phim__img">
-							</div>
-							<div class="phim__content">
-								<div class="phim__title">Chỉ Có Thể Là Yêu - It's Okay, That's Love</div>
-								<div class="phim__type">Phim chiếu rạp</div>
-								<div class="phim__style">Hành động</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__chieu__rap hai__huoc">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Kết Hôn Rồi Bắt Đầu Yêu - Begin Again</div>
-								<div class="phim__type">Phim chiếu rạp</div>
-								<div class="phim__style">Hài hước</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__chieu__rap phieu__luu">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Hình Cảnh Quốc Tế</div>
-								<div class="phim__type">Phim chiếu rạp</div>
-								<div class="phim__style">Phiêu lưu</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__chieu__rap kinh__di">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Hình Cảnh Quốc Tế</div>
-								<div class="phim__type">Phim chiếu rạp</div>
-								<div class="phim__style">Kinh dị</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__le hanh__dong">
-							<div class="phim__img">
-							</div>
-							<div class="phim__content">
-								<div class="phim__title">Chỉ Có Thể Là Yêu - It's Okay, That's Love</div>
-								<div class="phim__type">Phim lẻ</div>
-								<div class="phim__style">Hành động</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__le hai__huoc">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Kết Hôn Rồi Bắt Đầu Yêu - Begin Again</div>
-								<div class="phim__type">Phim lẻ</div>
-								<div class="phim__style">Hài hước</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__le kinh di">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Hình Cảnh Quốc Tế</div>
-								<div class="phim__type">Phim lẻ</div>
-								<div class="phim__style">Kinh dị</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__le phieu__luu">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Đại Thời Đại</div>
-								<div class="phim__type">Phim lẻ</div>
-								<div class="phim__style">Phiêu lưu</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__hoat__hinh hanh__dong">
-							<div class="phim__img">
-							</div>
-							<div class="phim__content">
-								<div class="phim__title">Chỉ Có Thể Là Yêu - It's Okay, That's Love</div>
-								<div class="phim__type">Phim hoạt hình</div>
-								<div class="phim__style">Hành động</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__hoat__hinh hai__huoc">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Kết Hôn Rồi Bắt Đầu Yêu - Begin Again</div>
-								<div class="phim__type">Phim hoạt hình</div>
-								<div class="phim__style">Hài hước</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__hoat__hinh phieu__luu">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Hình Cảnh Quốc Tế</div>
-								<div class="phim__type">Phim hoạt hình</div>
-								<div class="phim__style">Phiêu lưu</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__hoat__hinh kinh__di">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Đại Thời Đại</div>
-								<div class="phim__type">Phim hoạt hình</div>
-								<div class="phim__style">Kinh dị</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__chieu__rap hanh__dong">
-							<div class="phim__img">
-							</div>
-							<div class="phim__content">
-								<div class="phim__title">Chỉ Có Thể Là Yêu - It's Okay, That's Love</div>
-								<div class="phim__type">Phim chiếu rạp</div>
-								<div class="phim__style">Hành động</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__chieu__rap hai__huoc">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Kết Hôn Rồi Bắt Đầu Yêu - Begin Again</div>
-								<div class="phim__type">Phim chiếu rạp</div>
-								<div class="phim__style">Hài hước</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__chieu__rap phieu__luu">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Hình Cảnh Quốc Tế</div>
-								<div class="phim__type">Phim chiếu rạp</div>
-								<div class="phim__style">Phiêu lưu</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__chieu__rap kinh__di">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Hình Cảnh Quốc Tế</div>
-								<div class="phim__type">Phim chiếu rạp</div>
-								<div class="phim__style">Kinh dị</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__le hanh__dong">
-							<div class="phim__img">
-							</div>
-							<div class="phim__content">
-								<div class="phim__title">Chỉ Có Thể Là Yêu - It's Okay, That's Love</div>
-								<div class="phim__type">Phim lẻ</div>
-								<div class="phim__style">Hành động</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__le hai__huoc">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Kết Hôn Rồi Bắt Đầu Yêu - Begin Again</div>
-								<div class="phim__type">Phim lẻ</div>
-								<div class="phim__style">Hài hước</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__le kinh di">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Hình Cảnh Quốc Tế</div>
-								<div class="phim__type">Phim lẻ</div>
-								<div class="phim__style">Kinh dị</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__le phieu__luu">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Đại Thời Đại</div>
-								<div class="phim__type">Phim lẻ</div>
-								<div class="phim__style">Phiêu lưu</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__hoat__hinh hanh__dong">
-							<div class="phim__img">
-							</div>
-							<div class="phim__content">
-								<div class="phim__title">Chỉ Có Thể Là Yêu - It's Okay, That's Love</div>
-								<div class="phim__type">Phim hoạt hình</div>
-								<div class="phim__style">Hành động</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__hoat__hinh hai__huoc">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Kết Hôn Rồi Bắt Đầu Yêu - Begin Again</div>
-								<div class="phim__type">Phim hoạt hình</div>
-								<div class="phim__style">Hài hước</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__hoat__hinh phieu__luu">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Hình Cảnh Quốc Tế</div>
-								<div class="phim__type">Phim hoạt hình</div>
-								<div class="phim__style">Phiêu lưu</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__hoat__hinh kinh__di">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Đại Thời Đại</div>
-								<div class="phim__type">Phim hoạt hình</div>
-								<div class="phim__style">Kinh dị</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__chieu__rap hanh__dong">
-							<div class="phim__img">
-							</div>
-							<div class="phim__content">
-								<div class="phim__title">Chỉ Có Thể Là Yêu - It's Okay, That's Love</div>
-								<div class="phim__type">Phim chiếu rạp</div>
-								<div class="phim__style">Hành động</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__chieu__rap hai__huoc">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Kết Hôn Rồi Bắt Đầu Yêu - Begin Again</div>
-								<div class="phim__type">Phim chiếu rạp</div>
-								<div class="phim__style">Hài hước</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__chieu__rap phieu__luu">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Hình Cảnh Quốc Tế</div>
-								<div class="phim__type">Phim chiếu rạp</div>
-								<div class="phim__style">Phiêu lưu</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__chieu__rap kinh__di">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Hình Cảnh Quốc Tế</div>
-								<div class="phim__type">Phim chiếu rạp</div>
-								<div class="phim__style">Kinh dị</div>
-							</div>
-						</div>
-						
-					</div>
-
-
-
-
-<!--hình số 9-->
-					<div class="all__phim ">
-						<div id__phim="" onclick="play__video(this);" class="phim phim__le tinh__cam search">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Bạn Trai Tôi Là Hồ Ly</div>
-								<div class="phim__type">Phim lẻ</div>
-								<div class="phim__style">Tình Cảm</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__le tinh__cam search">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Hơn Cả Tình Bạn</div>
-								<div class="phim__type">Phim lẻ</div>
-								<div class="phim__style">Tình Cảm</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__le hanh__dong search">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Vampire Detective</div>
-								<div class="phim__type">Phim lẻ</div>
-								<div class="phim__style">Hành Động</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__bo phieu__luu search">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Trở Lại Tuổi 18</div>
-								<div class="phim__type">Phim Bộ</div>
-								<div class="phim__style">Phiêu Lưu</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__le tinh__cam search">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Bạn Trai Tôi Là Hồ Ly - Thuyết Minh</div>
-								<div class="phim__type">Phim lẻ</div>
-								<div class="phim__style">Tình Cảm</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__le tinh__cam search">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Chỉ Có Thể Là Yêu</div>
-								<div class="phim__type">Phim lẻ</div>
-								<div class="phim__style">Tình Cảm</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__bo hanh__dong search">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Kairos</div>
-								<div class="phim__type">Phim Bộ</div>
-								<div class="phim__style">Hành Động</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__le tinh__cam search">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Cách Mạng Tình Yêu</div>
-								<div class="phim__type">Phim lẻ</div>
-								<div class="phim__style">Tình Cảm</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__hoat__hinh kinh__di search">
-							<div class="phim__img" ></div>
-							<div class="phim__content">
-								<div class="phim__title" >SomeHow 18</div>
-								<div class="phim__type">Phim hoạt hình</div>
-								<div class="phim__style">Kinh dị</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__hoat__hinh kinh__di search">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Chỉ Có Thể Là Yêu - It's Okay, That's Love</div>
-								<div class="phim__type">Phim hoạt hình</div>
-								<div class="phim__style">Kinh dị</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__chieu__rap hanh__dong search">
-							<div class="phim__img">
-							</div>
-							<div class="phim__content">
-								<div class="phim__title">Hơn Cả Tình Bạn </div>
-								<div class="phim__type">Phim chiếu rạp</div>
-								<div class="phim__style">Hành động</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__chieu__rap hai__huoc search">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Trở Lại Tuổi 18</div>
-								<div class="phim__type">Phim chiếu rạp</div>
-								<div class="phim__style">Hài hước</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__chieu__rap kinh__di search">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Sắc Đẹp Ngàn Cân</div>
-								<div class="phim__type">Phim chiếu rạp</div>
-								<div class="phim__style">Kinh dị</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__le hai__huoc search">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Hôn Nhân Không Hẹn Hò</div>
-								<div class="phim__type">Phim chiếu rạp</div>
-								<div class="phim__style">Hài hước</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__le kinh__di search">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Chiến Nào Ma Kia</div>
-								<div class="phim__type">Phim Lẻ</div>
-								<div class="phim__style">Kinh dị</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__le hai__huoc search">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Mỹ Nhân Ngư</div>
-								<div class="phim__type">Phim Lẻ</div>
-								<div class="phim__style">Hài Hước</div>
-							</div>
-						</div>
-						
-						
-						<div id__phim="" onclick="play__video(this);" class="phim phim__le hai__huoc search">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Phẩm Chất Quý Cô</div>
-								<div class="phim__type">Phim Lẻ</div>
-								<div class="phim__style">Hài Hước</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__bo hai__huoc search">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Hoa Du Ký</div>
-								<div class="phim__type">Phim Bộ</div>
-								<div class="phim__style">Hài Hước</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__bo hai__huoc search">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Tên Nữ Cử Tạ</div>
-								<div class="phim__type">Phim Bộ</div>
-								<div class="phim__style">Hài Hước</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__bo hai__huoc search">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Anh Có Thích BRAHMS ?</div>
-								<div class="phim__type">Phim Bộ</div>
-								<div class="phim__style">Hài Hước</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__le hai__huoc search">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Bẩy Tình Yêu</div>
-								<div class="phim__type">Phim Lẻ</div>
-								<div class="phim__style">Hài Hước</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__chieu__rap kinh__di search">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Ám Hiệu</div>
-								<div class="phim__type">Phim Lẻ</div>
-								<div class="phim__style">Kinh dị</div>
-							</div>
-						</div>
-						
-						<div id__phim="" onclick="play__video(this);" class="phim phim__bo hai__huoc search">
-							<div class="phim__img" ></div>
-							<div class="phim__content">
-								<div class="phim__title" >Gia Đình</div>
-								<div class="phim__type">Phim Bộ</div>
-								<div class="phim__style">Hài Hước</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__le kinh__di search">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Cái Giá Tham Vọng</div>
-								<div class="phim__type">Phim lẻ</div>
-								<div class="phim__style">Kinh dị</div>
-							</div>
-						</div>
-						
-						
-						
-						
-						<div id__phim="" onclick="play__video(this);" class="phim phim__le hai__huoc search">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Lại Là Oh Hue Young</div>
-								<div class="phim__type">Phim lẻ</div>
-								<div class="phim__style">Hài Hước</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__le hanh__dong search">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Mật Danh K2</div>
-								<div class="phim__type">Phim lẻ</div>
-								<div class="phim__style">Hành Động</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__le hanh__dong search">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Chicago Typewriter</div>
-								<div class="phim__type">Phim lẻ</div>
-								<div class="phim__style">Hành Động</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__le hanh__dong search">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Secret Love Again</div>
-								<div class="phim__type">Phim Bộ</div>
-								<div class="phim__style">Hành Động</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__le hanh__dong search">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Criminal Minds</div>
-								<div class="phim__type">Phim lẻ</div>
-								<div class="phim__style">Hành Động</div>
-							</div>
-						</div>
-						<div id__phim="" onclick="play__video(this);" class="phim phim__le tinh__cam search">
-							<div class="phim__img"></div>
-							<div class="phim__content">
-								<div class="phim__title">Tìm Lại Chính Mình</div>
-								<div class="phim__type">Phim lẻ</div>
-								<div class="phim__style">Tình Cảm</div>
-							</div>
-						</div>
-						
-						
-					</div>
-
-					<div class="film__area--add film__area--phim__hoat__hinh" id="divSearch">
-								<div class="fim__area__intro">
-									KẾT QUẢ
-								</div>
-								<div class="film__area__box">
-								</div>
-						</div> 
-								
-					<div class="load">loading</div>
-					<script src="fpt.js"></script>
-					<script src="video.js"></script>
-					<script src="review.js"></script>
-				</body>
-				</html>
+    <script src="video.js"></script>
+    <script src="fpt.js"></script>
+    <script src="review.js"></script>
+</body>
+</html>

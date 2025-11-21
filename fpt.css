@@ -623,7 +623,7 @@ a{
     left: 0;
     background:linear-gradient(to bottom right, rgba(0,0,0,0.75) 19%, rgba(140,129,114,0.4) 100%),url('img/login.jpg');
     background-size: 100%;
-    z-index: 100;
+    z-index: 100000;
     display: flex;
     align-items: center;
     color: #FFFFFF;
@@ -1358,22 +1358,6 @@ video{
     transform: translateY(-2px);
 }
 
-/* Comments List */
-.comments__list {
-    margin-top: 30px;
-}
-
-.comment__item {
-    display: flex;
-    gap: 15px;
-    padding: 20px 0;
-    border-bottom: 1px solid #2D2D2D;
-}
-
-.comment__item:last-child {
-    border-bottom: none;
-}
-
 .comment__content {
     flex: 1;
 }
@@ -1492,10 +1476,7 @@ video{
     .add__comment {
         flex-direction: column;
     }
-    
-    .comment__item {
-        flex-direction: column;
-    }
+
     
     .comment__header {
         flex-direction: column;
@@ -1505,4 +1486,133 @@ video{
     .comment__time {
         margin-left: 0;
     }
+    /* ====================================================== */
+/* STYLE FORM ĐĂNG NHẬP / ĐĂNG KÝ (Mới)                 */
+/* ====================================================== */
+
+.sign-login {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* Nền đen mờ */
+    z-index: 10001; /* Luôn nằm trên cùng */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+}
+
+.login-sign__card {
+    background-color: #1f1f1f;
+    padding: 40px;
+    border-radius: 8px;
+    width: 400px;
+    max-width: 90%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    position: relative;
+    animation: slideDown 0.3s ease;
+    color: white;
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #888;
+    transition: color 0.2s;
+}
+
+.close-btn:hover {
+    color: #ff55a5;
+}
+
+.sign-login__title {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #ff55a5;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.sign-login input {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: #2b2b2b;
+    border: 1px solid #333;
+    border-radius: 4px;
+    color: white;
+    outline: none;
+    font-size: 14px;
+}
+
+.sign-login input:focus {
+    border-color: #ff55a5;
+}
+
+/* Nút hiển thị mật khẩu */
+.pass--show {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #888;
+}
+
+.login-sign-btn {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(90deg, #ff55a5 0%, #ff5860 100%);
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: transform 0.2s;
+}
+
+.login-sign-btn:hover {
+    transform: scale(1.02);
+}
+
+.sign-or-login {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 13px;
+    color: #bbb;
+    cursor: pointer;
+}
+
+.sign-or-login span {
+    color: #ff55a5;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.sign-or-login:hover span {
+    text-decoration: underline;
+}
+
+/* Class ẩn */
+.hide {
+    display: none !important;
+}
+
 }

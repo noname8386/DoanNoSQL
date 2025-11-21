@@ -1,0 +1,179 @@
+/* Reset mặc định */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    /* Hình nền web phim */
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('img/login.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Wrapper bao quanh form */
+.login-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Style cho cái thẻ (Card) Form */
+.form-container {
+    background-color: rgba(0, 0, 0, 0.85); /* Nền đen trong suốt */
+    padding: 40px;
+    border-radius: 10px;
+    width: 450px;
+    max-width: 100%;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+    border: 1px solid #333;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Hiệu ứng xuất hiện */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Ẩn form */
+.hidden {
+    display: none;
+}
+
+/* Tiêu đề */
+.form-title {
+    color: #fff;
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 30px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* Nhóm input */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    color: #b3b3b3;
+    font-size: 14px;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+/* Ô nhập liệu có icon */
+.input-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon i {
+    position: absolute;
+    left: 15px;
+    color: #888;
+}
+
+.input-icon input {
+    width: 100%;
+    padding: 14px 15px 14px 45px; /* Chừa chỗ cho icon bên trái */
+    background-color: #333;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-icon input:focus {
+    background-color: #444;
+    box-shadow: 0 0 0 2px #ff55a5; /* Viền sáng khi nhập */
+}
+
+/* Nút hiện mật khẩu */
+.input-icon .show-pass {
+    left: auto;
+    right: 15px;
+    cursor: pointer;
+    color: #888;
+}
+
+.input-icon .show-pass:hover {
+    color: #ff55a5;
+}
+
+/* Nút Submit */
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    margin-top: 10px;
+    background: linear-gradient(90deg, #ff55a5 0%, #ff5860 100%); /* Màu hồng cam chuẩn */
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 85, 165, 0.4);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+/* Footer của form */
+.form-footer {
+    text-align: center;
+    margin-top: 25px;
+    color: #b3b3b3;
+    font-size: 14px;
+}
+
+.form-footer a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.form-footer a:hover {
+    color: #ff55a5;
+    text-decoration: underline;
+}
+
+.back-home {
+    display: inline-block;
+    margin-top: 15px;
+    color: #888 !important;
+    font-size: 13px;
+}
+
+.back-home i {
+    margin-right: 5px;
+}
+
+/* Responsive cho điện thoại */
+@media (max-width: 480px) {
+    .form-container {
+        padding: 25px;
+    }
+    .form-title {
+        font-size: 26px;
+    }
+}

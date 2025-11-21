@@ -1,315 +1,309 @@
-// ===== RATING & COMMENTS FUNCTIONALITY =====
+// review.js - Full Code (Fix hiển thị số Like/Dislike)
 
-// User Rating Stars
-let userRating = 0;
-
-// Initialize star rating functionality
-document.addEventListener('DOMContentLoaded', function() {
-    const stars = document.querySelectorAll('.star__rating i');
-    const ratingMessage = document.getElementById('ratingMessage');
-    
-    stars.forEach((star, index) => {
-        // Hover effect
-        star.addEventListener('mouseenter', function() {
-            highlightStars(index + 1);
-        });
-        
-        // Click to rate
-        star.addEventListener('click', function() {
-            userRating = index + 1;
-            setRating(userRating);
-            updateRatingMessage(userRating);
-        });
-    });
-    
-    // Reset on mouse leave
-    document.querySelector('.star__rating').addEventListener('mouseleave', function() {
-        if (userRating > 0) {
-            setRating(userRating);
-        } else {
-            clearStars();
-        }
-    });
-});
-
-// Highlight stars on hover
-function highlightStars(count) {
-    const stars = document.querySelectorAll('.star__rating i');
-    stars.forEach((star, index) => {
-        if (index < count) {
-            star.classList.remove('far');
-            star.classList.add('fas', 'active');
-        } else {
-            star.classList.remove('fas', 'active');
-            star.classList.add('far');
-        }
-    });
-}
-
-// Set permanent rating
-function setRating(count) {
-    const stars = document.querySelectorAll('.star__rating i');
-    stars.forEach((star, index) => {
-        if (index < count) {
-            star.classList.remove('far');
-            star.classList.add('fas', 'active');
-        } else {
-            star.classList.remove('fas', 'active');
-            star.classList.add('far');
-        }
-    });
-}
-
-// Clear all stars
-function clearStars() {
-    const stars = document.querySelectorAll('.star__rating i');
-    stars.forEach(star => {
-        star.classList.remove('fas', 'active');
-        star.classList.add('far');
-    });
-}
-
-// Update rating message
-function updateRatingMessage(rating) {
-    const messages = {
-        1: 'Tệ',
-        2: 'Không hay lắm',
-        3: 'Bình thường',
-        4: 'Hay',
-        5: 'Xuất sắc!'
-    };
-    const ratingMessage = document.getElementById('ratingMessage');
-    ratingMessage.textContent = `Bạn đã đánh giá ${rating} sao - ${messages[rating]}`;
-    ratingMessage.style.color = '#ffc107';
-    
-    // Save rating (would integrate with Firebase here)
-    console.log('User rating:', rating);
-    // TODO: Save to Firebase Firestore
-}
-
-// Submit Comment
-function submitComment() {
-    const commentInput = document.getElementById('commentInput');
-    const commentText = commentInput.value.trim();
-    
-    if (commentText === '') {
-        alert('Vui lòng nhập nội dung bình luận');
-        return;
-    }
-    
-    if (userRating === 0) {
-        alert('Vui lòng đánh giá phim trước khi bình luận');
-        return;
-    }
-    
-    // Create comment object
-    const comment = {
-        author: 'Người dùng', // Replace with actual user name from login
-        rating: userRating,
-        text: commentText,
-        timestamp: new Date(),
-        likes: 0
-    };
-    
-    // Add comment to UI
-    addCommentToUI(comment);
-    
-    // Clear form
-    commentInput.value = '';
-    
-    // TODO: Save to Firebase Firestore
-    console.log('New comment:', comment);
-}
-
-// Add comment to UI
-function addCommentToUI(comment) {
-    const commentsList = document.getElementById('commentsList');
-    const commentItem = document.createElement('div');
-    commentItem.classList.add('comment__item');
-    
-    // Generate star rating HTML
-    let starsHTML = '';
-    for (let i = 1; i <= 5; i++) {
-        if (i <= comment.rating) {
-            starsHTML += '<i class="fas fa-star"></i>';
-        } else {
-            starsHTML += '<i class="far fa-star"></i>';
-        }
-    }
-    
-    // Format timestamp
-    const timeAgo = getTimeAgo(comment.timestamp);
-    
-    commentItem.innerHTML = `
-        <div class="comment__avatar">
-            <i class="fas fa-user-circle"></i>
-        </div>
-        <div class="comment__content">
-            <div class="comment__header">
-                <span class="comment__author">${comment.author}</span>
-                <span class="comment__rating">
-                    ${starsHTML}
-                </span>
-                <span class="comment__time">${timeAgo}</span>
-            </div>
-            <p class="comment__text">${comment.text}</p>
-            <div class="comment__actions">
-                <button class="btn__like" onclick="likeComment(this)">
-                    <i class="far fa-thumbs-up"></i> Thích <span>(${comment.likes})</span>
-                </button>
-                <button class="btn__reply">
-                    <i class="far fa-comment"></i> Trả lời
-                </button>
-            </div>
-        </div>
-    `;
-    
-    // Insert at the beginning of the list
-    commentsList.insertBefore(commentItem, commentsList.firstChild);
-    
-    // Update comment count
-    updateCommentCount();
-}
-
-// Clear comment input
-function clearComment() {
-    document.getElementById('commentInput').value = '';
-}
-
-// Like comment
-function likeComment(button) {
-    const likeCount = button.querySelector('span');
-    let count = parseInt(likeCount.textContent.replace(/[()]/g, ''));
-    
-    if (button.classList.contains('liked')) {
-        // Unlike
-        count--;
-        button.classList.remove('liked');
-        button.querySelector('i').classList.remove('fas');
-        button.querySelector('i').classList.add('far');
-    } else {
-        // Like
-        count++;
-        button.classList.add('liked');
-        button.querySelector('i').classList.remove('far');
-        button.querySelector('i').classList.add('fas');
-    }
-    
-    likeCount.textContent = `(${count})`;
-    
-    // TODO: Update in Firebase Firestore
-}
-
-// Load more comments
-function loadMoreComments() {
-    // TODO: Load more comments from Firebase Firestore
-    console.log('Loading more comments...');
-    alert('Đang tải thêm bình luận...');
-}
-
-// Helper function to get time ago
-function getTimeAgo(timestamp) {
-    const now = new Date();
-    const diff = Math.floor((now - timestamp) / 1000); // difference in seconds
-    
-    if (diff < 60) {
-        return 'Vừa xong';
-    } else if (diff < 3600) {
-        const minutes = Math.floor(diff / 60);
-        return `${minutes} phút trước`;
-    } else if (diff < 86400) {
-        const hours = Math.floor(diff / 3600);
-        return `${hours} giờ trước`;
-    } else if (diff < 2592000) {
-        const days = Math.floor(diff / 86400);
-        return `${days} ngày trước`;
-    } else {
-        const months = Math.floor(diff / 2592000);
-        return `${months} tháng trước`;
-    }
-}
-
-// Update comment count
-function updateCommentCount() {
-    const commentsList = document.getElementById('commentsList');
-    const commentCount = document.getElementById('commentCount');
-    const count = commentsList.querySelectorAll('.comment__item').length;
-    commentCount.textContent = `(${count})`;
-}
-
-// ===== FIREBASE INTEGRATION (TEMPLATE) =====
-// Uncomment and configure when integrating with Firebase
-
-/*
-// Firebase Configuration
 const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_AUTH_DOMAIN",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_STORAGE_BUCKET",
-    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-    appId: "YOUR_APP_ID"
+    apiKey: "AIzaSyBpRbOMOD0mIaNJof5Kn_LwjjXRdQak7JU",
+    authDomain: "nosql-project-26b2e.firebaseapp.com",
+    projectId: "nosql-project-26b2e",
+    storageBucket: "nosql-project-26b2e.firebasestorage.app",
+    messagingSenderId: "565935933516",
+    appId: "1:565935933516:web:ae7930ffe8e81e9c70cce9",
+    measurementId: "G-CSKW3JRVXX"
 };
 
-// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore();
+window.db = firebase.firestore();
+window.auth = firebase.auth();
 
-// Save rating to Firestore
-function saveRatingToFirestore(movieId, userId, rating) {
-    return db.collection('ratings').add({
-        movieId: movieId,
-        userId: userId,
-        rating: rating,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp()
-    });
+let currentUser = null;
+let currentMovieId = null;
+let unsubscribeComments = null;
+
+// Kiểm tra xem đang ở trang nào
+const isLoginPage = window.location.pathname.includes('login.html');
+
+// ===== 1. KHỞI TẠO =====
+async function initApp() {
+    if (isLoginPage) return;
+
+    const snapshot = await window.db.collection('movies').limit(1).get();
+    if (!snapshot.empty) {
+        if (typeof loadMoviesFromFirestore === 'function') loadMoviesFromFirestore();
+        return;
+    }
+    await seedDatabase();
 }
 
-// Save comment to Firestore
-function saveCommentToFirestore(movieId, userId, comment) {
-    return db.collection('comments').add({
-        movieId: movieId,
-        userId: userId,
-        author: comment.author,
-        rating: comment.rating,
-        text: comment.text,
-        likes: 0,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp()
-    });
+// ===== 2. XỬ LÝ NGƯỜI DÙNG (AUTH) =====
+window.auth.onAuthStateChanged(async (user) => {
+    currentUser = user;
+
+    if (user) {
+        if (isLoginPage) {
+            window.location.href = 'fpt.html';
+            return;
+        }
+
+        const name = user.displayName || user.email;
+        document.querySelectorAll('.header__account').forEach(el => {
+            el.innerText = name; 
+            el.onclick = function() {
+                if(confirm("Đăng xuất tài khoản " + name + "?")) log();
+            };
+        });
+
+        const accName = document.querySelector('.account__ten');
+        const accEmail = document.querySelector('.account__email');
+        if(accName) accName.innerText = name;
+        if(accEmail) accEmail.innerText = user.email;
+
+    } else {
+        if (!isLoginPage) {
+            document.querySelectorAll('.header__account').forEach(el => {
+                el.innerText = 'LOGIN';
+                el.onclick = function() {
+                    window.location.href = 'login.html';
+                };
+            });
+        }
+    }
+});
+
+// Các hàm Đăng ký / Đăng nhập / Đăng xuất
+async function dang__ky() {
+    const name = document.querySelector('.sign__up-name').value;
+    const email = document.querySelector('.sign__up-email').value;
+    const pass = document.querySelector('.sign__up-password').value;
+    const repass = document.querySelector('.sign__up-repassword').value;
+    
+    if(pass !== repass) { alert("Mật khẩu nhập lại không khớp!"); return; }
+
+    try {
+        const cred = await window.auth.createUserWithEmailAndPassword(email, pass);
+        await cred.user.updateProfile({displayName: name});
+        await window.db.collection('users').doc(cred.user.uid).set({name, email});
+        alert("Đăng ký thành công! Đang chuyển hướng...");
+    } catch(e) { alert("Lỗi: " + e.message); }
 }
 
-// Load comments from Firestore
-function loadCommentsFromFirestore(movieId) {
-    db.collection('comments')
+async function dang__nhap() {
+    const email = document.querySelector('.login-name').value;
+    const pass = document.querySelector('.login-password').value;
+    try {
+        await window.auth.signInWithEmailAndPassword(email, pass);
+    } catch(e) { alert("Sai email hoặc mật khẩu!"); }
+}
+
+async function log() { 
+    await window.auth.signOut(); 
+    location.reload(); 
+}
+
+// ===== 3. LOGIC PHIM (SEED DATA) =====
+async function seedDatabase() {
+    const batch = window.db.batch();
+    const categories = [
+        { type: 'Phim bộ', code: 'phim_bo', styles: ['Hàn Quốc', 'Hoa Ngữ', 'Hồng Kông'] },
+        { type: 'Phim lẻ', code: 'phim_le', styles: ['Hành Động', 'Tình Cảm', 'Hài Hước'] },
+        { type: 'Phim chiếu rạp', code: 'phim_chieu_rap', styles: ['Bom Tấn', 'Kinh Dị', 'Phiêu Lưu'] },
+        { type: 'Phim hoạt hình', code: 'phim_hoat_hinh', styles: ['Anime', '3D', 'Hài Hước'] }
+    ];
+    let count = 0;
+    categories.forEach(cat => {
+        for (let i = 1; i <= 20; i++) {
+            const uniqueId = `movie_${cat.code}_${i}`;
+            const docRef = window.db.collection('movies').doc(uniqueId);
+            const imgIndex = Math.floor(Math.random() * 30) + 1;
+            const style = cat.styles[Math.floor(Math.random() * cat.styles.length)];
+            batch.set(docRef, {
+                movieId: uniqueId, title: `${cat.type} ${i} - ${style}`, type: cat.type, style: style,
+                poster: `img/img/Search/${imgIndex}.jpg`, videoSource: `img/video1.mp4`,
+                description: `Mô tả phim...`, categories: [cat.code],
+                createdAt: firebase.firestore.FieldValue.serverTimestamp()
+            });
+            count++;
+        }
+    });
+    await batch.commit();
+    location.reload();
+}
+
+// ===== 4. PLAYER VIDEO & BÌNH LUẬN =====
+window.play__video = async function(obj) {
+    const mid = obj.getAttribute('id__phim');
+    if(!mid) return;
+    currentMovieId = mid;
+    
+    document.querySelectorAll('body>div').forEach(d => { if(!d.classList.contains('header')) d.style.display='none'; });
+    document.querySelector('.play__area').style.display='block';
+    window.scrollTo(0,0);
+
+    const doc = await window.db.collection('movies').doc(mid).get();
+    if(doc.exists) {
+        const d = doc.data();
+        document.querySelector('.play__info h3').innerText = d.title;
+        document.querySelector('.play__info .info__content p:nth-of-type(2)').innerText = d.description;
+        const posterDiv = document.querySelector('.play__info .info__img');
+        if(posterDiv) posterDiv.style.backgroundImage = `url('${d.poster}')`;
+        const video = document.getElementById('video');
+        video.querySelector('source').src = d.videoSource || 'img/video1.mp4';
+        video.load();
+    }
+    setupRealtimeComments(mid);
+};
+
+function setupRealtimeComments(movieId) {
+    const list = document.getElementById('commentsList');
+    const countLabel = document.getElementById('commentCount');
+    list.innerHTML = '<p style="text-align:center; color:#888">Đang tải bình luận...</p>';
+
+    if (unsubscribeComments) unsubscribeComments();
+
+    unsubscribeComments = window.db.collection('comments')
         .where('movieId', '==', movieId)
-        .orderBy('timestamp', 'desc')
-        .limit(10)
-        .get()
-        .then(snapshot => {
-            snapshot.forEach(doc => {
-                const comment = doc.data();
-                addCommentToUI(comment);
+        .orderBy('timestamp', 'asc')
+        .onSnapshot((snapshot) => {
+            countLabel.innerText = `(${snapshot.size})`;
+            list.innerHTML = ''; 
+            if (snapshot.empty) { list.innerHTML = '<p style="text-align:center; color:#777">Chưa có bình luận nào.</p>'; return; }
+
+            const comments = [];
+            snapshot.forEach(doc => comments.push({ id: doc.id, ...doc.data() }));
+
+            comments.filter(c => !c.parentId).forEach(c => list.insertAdjacentHTML('afterbegin', createCommentHTML(c))); 
+            comments.filter(c => c.parentId).forEach(c => {
+                const replyList = document.getElementById(`replies-${c.parentId}`);
+                if (replyList) replyList.insertAdjacentHTML('beforeend', createCommentHTML(c, true));
             });
         });
 }
 
-// Calculate average rating
-function calculateAverageRating(movieId) {
-    db.collection('ratings')
-        .where('movieId', '==', movieId)
-        .get()
-        .then(snapshot => {
-            let total = 0;
-            let count = 0;
+// ===> ĐÂY LÀ HÀM ĐÃ ĐƯỢC SỬA ĐỂ HIỆN SỐ LIKE <===
+function createCommentHTML(c, isReply = false) {
+    const avatarColor = stringToColor(c.author);
+    const time = timeAgo(c.timestamp);
+    const myId = currentUser ? currentUser.uid : null;
+    
+    // Kiểm tra trạng thái Like/Dislike
+    const liked = c.likes && c.likes.includes(myId) ? 'active' : '';
+    const disliked = c.dislikes && c.dislikes.includes(myId) ? 'active' : '';
+    
+    // Đếm số lượng (Nếu null thì là 0)
+    const likeCount = c.likes ? c.likes.length : 0;
+    const dislikeCount = c.dislikes ? c.dislikes.length : 0;
+
+    const size = isReply ? '30px' : '40px';
+    const fontSize = isReply ? '12px' : '16px';
+    const itemId = `cmt-${c.id}`;
+
+    return `
+    <div class="comment__item" id="${itemId}">
+        <div class="comment__flex-container">
+            <div class="comment__avatar-img" style="width: ${size}; height: ${size}; background: ${avatarColor}; font-size: ${fontSize};">
+                ${c.author.charAt(0).toUpperCase()}
+            </div>
             
-            snapshot.forEach(doc => {
-                total += doc.data().rating;
-                count++;
-            });
+            <div style="flex: 1;"> 
+                <div class="comment__box">
+                    <a class="comment__author">${c.author}</a>
+                    <div class="comment__text">${c.text}</div>
+                </div>
+                <div class="comment__actions">
+                    <button class="action-btn ${liked}" onclick="toggleReaction('${c.id}', 'like')">
+                        Like ${likeCount > 0 ? `(${likeCount})` : ''}
+                    </button>
+                    
+                    <button class="action-btn ${disliked}" onclick="toggleReaction('${c.id}', 'dislike')">
+                        Dislike ${dislikeCount > 0 ? `(${dislikeCount})` : ''}
+                    </button>
+                    
+                    <button class="action-btn" onclick="showReplyInput('${c.id}')">Reply</button>
+                    <span>${time}</span>
+                </div>
             
-            const average = count > 0 ? (total / count).toFixed(1) : 0;
-            document.getElementById('averageRating').textContent = average;
-            document.getElementById('totalReviews').textContent = count;
-        });
+                <div class="reply-input-container" id="input-${c.id}">
+                    <div class="reply-input-wrapper">
+                        <input type="text" class="reply-input" id="text-${c.id}" placeholder="Viết phản hồi...">
+                        <button class="reply-send-btn" onclick="submitReply('${c.id}', '${!isReply ? c.id : c.parentId}')">➤</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        ${!isReply ? `<div class="reply-list" id="replies-${c.id}"></div>` : ''}
+    </div>`;
 }
-*/
+
+window.toggleReaction = async function(commentId, type) {
+    if (!currentUser) { window.location.href = 'login.html'; return; }
+    const ref = window.db.collection('comments').doc(commentId);
+    const uid = currentUser.uid;
+    
+    await window.db.runTransaction(async (t) => {
+        const doc = await t.get(ref);
+        if (!doc.exists) return;
+        const data = doc.data();
+        let likes = data.likes || [];
+        let dislikes = data.dislikes || [];
+        
+        if (type === 'like') {
+            if (likes.includes(uid)) likes = likes.filter(id => id !== uid);
+            else { likes.push(uid); dislikes = dislikes.filter(id => id !== uid); }
+        } else {
+            if (dislikes.includes(uid)) dislikes = dislikes.filter(id => id !== uid);
+            else { dislikes.push(uid); likes = likes.filter(id => id !== uid); }
+        }
+        t.update(ref, { likes, dislikes });
+    });
+};
+
+window.showReplyInput = function(commentId) {
+    if (!currentUser) { window.location.href = 'login.html'; return; }
+    const el = document.getElementById(`input-${commentId}`);
+    document.querySelectorAll('.reply-input-container').forEach(d => { if(d.id !== `input-${commentId}`) d.style.display='none'; });
+    el.style.display = (el.style.display === 'block') ? 'none' : 'block';
+    if(el.style.display === 'block') document.getElementById(`text-${commentId}`).focus();
+};
+
+window.submitReply = async function(clickedId, rootParentId) {
+    const input = document.getElementById(`text-${clickedId}`);
+    const text = input.value.trim();
+    if (!text) return;
+    const finalParentId = rootParentId || clickedId;
+    await window.db.collection('comments').add({
+        movieId: currentMovieId, userId: currentUser.uid,
+        author: currentUser.displayName || currentUser.email.split('@')[0],
+        text: text, parentId: finalParentId,
+        likes: [], dislikes: [], timestamp: firebase.firestore.FieldValue.serverTimestamp()
+    });
+    input.value = '';
+    document.getElementById(`input-${clickedId}`).style.display = 'none';
+};
+
+window.submitComment = async function() {
+    if(!currentUser) { window.location.href = 'login.html'; return; }
+    const txt = document.getElementById('commentInput').value.trim();
+    if(!txt) return;
+    await window.db.collection('comments').add({
+        movieId: currentMovieId, userId: currentUser.uid,
+        author: currentUser.displayName || currentUser.email.split('@')[0],
+        text: txt, parentId: null,
+        likes: [], dislikes: [], timestamp: firebase.firestore.FieldValue.serverTimestamp()
+    });
+    document.getElementById('commentInput').value = '';
+};
+
+function timeAgo(ts) {
+    if (!ts) return "Vừa xong";
+    const s = Math.floor((new Date() - ts.toDate()) / 1000);
+    if (s < 60) return "Vừa xong";
+    if (s < 3600) return Math.floor(s/60) + " phút trước";
+    if (s < 86400) return Math.floor(s/3600) + " giờ trước";
+    return Math.floor(s/86400) + " ngày trước";
+}
+function stringToColor(str) {
+    let hash = 0; for (let i = 0; i < str.length; i++) hash = str.charCodeAt(i) + ((hash << 5) - hash);
+    let color = '#'; for (let i = 0; i < 3; i++) color += ('00' + ((hash >> (i * 8)) & 0xFF).toString(16)).substr(-2);
+    return color;
+}
+
+document.addEventListener('DOMContentLoaded', () => setTimeout(initApp, 500));
