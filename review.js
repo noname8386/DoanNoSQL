@@ -1,13 +1,13 @@
 // review.js - Full Code (Soft Delete Logic)
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBpRbOMOD0mIaNJof5Kn_LwjjXRdQak7JU",
+    apiKey: "",
     authDomain: "nosql-project-26b2e.firebaseapp.com",
     projectId: "nosql-project-26b2e",
     storageBucket: "nosql-project-26b2e.firebasestorage.app",
     messagingSenderId: "565935933516",
-    appId: "1:565935933516:web:ae7930ffe8e81e9c70cce9",
-    measurementId: "G-CSKW3JRVXX"
+    appId: "",
+    measurementId: ""
 };
 
 firebase.initializeApp(firebaseConfig);
