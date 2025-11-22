@@ -50,9 +50,9 @@ Dự án hiện dùng Firebase SDK v8 (cú pháp `firebase.initializeApp`, `fire
   2. Đảm bảo các trang HTML đã import SDK v8:
      ```html
      <!-- Firebase SDK v8 -->
-     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
-     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js"></script>
      ```
   3. `review.js` sẽ chạy `firebase.initializeApp(firebaseConfig);` và gán `window.db = firebase.firestore();`, `window.auth = firebase.auth();`. Các file khác (ví dụ `fpt.js`) dùng `window.db`.
 

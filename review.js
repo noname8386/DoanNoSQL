@@ -1,14 +1,5 @@
 // review.js - Logic Data (Film, Auth, Comment, Rating)
 
-const firebaseConfig = {
-    apiKey: "",
-    authDomain: "nosql-project-26b2e.firebaseapp.com",
-    projectId: "nosql-project-26b2e",
-    storageBucket: "nosql-project-26b2e.firebasestorage.app",
-    messagingSenderId: "565935933516",
-    appId: "",
-    measurementId: ""
-};
 
 firebase.initializeApp(firebaseConfig);
 window.db = firebase.firestore();

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,15 +25,16 @@
         });
     </script>
 </head>
+
 <body>
     <div class="header">
         <div class="header__logo" onclick="window.location.href='fpt.html'"><img src="img/logo.svg"></div>
         <div class="header__menu">
-            <div class="header__items" onclick="window.location.href='fpt.html'">trang chủ</div>
-            <div class="header__items">Phim bộ</div>
-            <div class="header__items">phim lẻ</div>
-            <div class="header__items">phim chiếu rạp</div>
-            <div class="header__items">phim hoạt hình</div>
+            <a href="#" class="header__items">trang chủ</a>
+            <a href="#phim_bo" class="header__items">Phim bộ</a>
+            <a href="#phim_le" class="header__items">phim lẻ</a>
+            <a href="#phim_chieu_rap" class="header__items">phim chiếu rạp</a>
+            <a href="#phim_hoat_hinh" class="header__items">phim hoạt hình</a>
         </div>
         <div class="header__account" onclick="window.location.href='login.html'">Login</div>
     </div>
@@ -40,11 +42,31 @@
     <div class="slider" id="a">
         <div class="slide__show">
             <div class="slide__list">
-                <div class="slide slide--1"><div class="slide__content"><h2>Ký ức Alhambra</h2></div></div>
-                <div class="slide slide--2"><div class="slide__content"><h2>Ký ức Alhambra</h2></div></div>
-                <div class="slide slide--3"><div class="slide__content"><h2>Ký ức Alhambra</h2></div></div>
-                <div class="slide slide--4"><div class="slide__content"><h2>Ký ức Alhambra</h2></div></div>
-                <div class="slide slide--5"><div class="slide__content"><h2>Ký ức Alhambra</h2></div></div>
+                <div class="slide slide--1">
+                    <div class="slide__content">
+                        <h2>Ký ức Alhambra</h2>
+                    </div>
+                </div>
+                <div class="slide slide--2">
+                    <div class="slide__content">
+                        <h2>Ký ức Alhambra</h2>
+                    </div>
+                </div>
+                <div class="slide slide--3">
+                    <div class="slide__content">
+                        <h2>Ký ức Alhambra</h2>
+                    </div>
+                </div>
+                <div class="slide slide--4">
+                    <div class="slide__content">
+                        <h2>Ký ức Alhambra</h2>
+                    </div>
+                </div>
+                <div class="slide slide--5">
+                    <div class="slide__content">
+                        <h2>Ký ức Alhambra</h2>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -52,30 +74,89 @@
     <div class="film__area__title">ĐỀ CỬ</div>
     <div class="film__area film__area--home">
         <div class="film__area__img"></div>
-        <div class="top__phim__bo top__phim"><h2 class="top__phim__title">TOP PHIM BỘ</h2><div class="top__phim__bo__area top__phim__area"></div></div>
-        <div class="top__phim__le top__phim"><h2 class="top__phim__title">TOP PHIM LẺ</h2><div class="top__phim__le__area top__phim__area"></div></div>
-        <div class="top__phim__chieu__rap top__phim"><h2 class="top__phim__title">TOP CHIẾU RẠP</h2><div class="top__phim__chieu__rap__area top__phim__area"></div></div>
-        <div class="top__phim__hoat__hinh top__phim"><h2 class="top__phim__title">TOP HOẠT HÌNH</h2><div class="top__phim__hoat__hinh__area top__phim__area"></div></div>
+        <div class="top__phim__bo top__phim">
+            <h2 class="top__phim__title">TOP PHIM BỘ</h2>
+            <div class="top__phim__bo__area top__phim__area"></div>
+        </div>
+        <div class="top__phim__le top__phim">
+            <h2 class="top__phim__title">TOP PHIM LẺ</h2>
+            <div class="top__phim__le__area top__phim__area"></div>
+        </div>
+        <div class="top__phim__chieu__rap top__phim">
+            <h2 class="top__phim__title">TOP CHIẾU RẠP</h2>
+            <div class="top__phim__chieu__rap__area top__phim__area"></div>
+        </div>
+        <div class="top__phim__hoat__hinh top__phim">
+            <h2 class="top__phim__title">TOP HOẠT HÌNH</h2>
+            <div class="top__phim__hoat__hinh__area top__phim__area"></div>
+        </div>
     </div>
 
     <div class="film__area--add film__area--phim__bo">
-        <div class="fim__area__intro">PHIM BỘ</div><div class="film__area__box film__area__box--phim__bo"></div><div class="phim__area__next" onclick="fill__next(this,4);">Show</div>
+        <div id="phim_bo" class="fim__area__intro">PHIM BỘ</div>
+        <div class="film__area__box film__area__box--phim__bo"></div>
+        <div class="phim__area__next" onclick="fill__next(this,4);">Show</div>
     </div>
     <div class="film__area--add film__area--phim__le">
-        <div class="fim__area__intro">PHIM LẺ</div><div class="film__area__box film__area__box--phim__le"></div><div class="phim__area__next" onclick="fill__next(this,5);">Show</div>
+        <div id="phim_le" class="fim__area__intro">PHIM LẺ</div>
+        <div class="film__area__box film__area__box--phim__le"></div>
+        <div class="phim__area__next" onclick="fill__next(this,5);">Show</div>
+    </div>
+    <div class="film__area--add film__area--phim__chieu__rap">
+        <div id="phim_chieu_rap" class="fim__area__intro">PHIM CHIẾU RẠP</div>
+        <div class="film__area__box film__area__box--phim__chieu__rap"></div>
+        <div class="phim__area__next" onclick="fill__next(this,5);">Show</div>
+    </div>
+    <div class="film__area--add film__area--phim__hoat__hinh">
+        <div id="phim_hoat_hinh" class="fim__area__intro">PHIM HOẠT HÌNH</div>
+        <div class="film__area__box film__area__box--phim__hoat__hinh"></div>
+        <div class="phim__area__next" onclick="fill__next(this,5);">Show</div>
     </div>
 
+
     <div class="footer">
-        <div class="footer__info"><div class="footer__contact"><h2>Liên Hệ</h2><p>Email: netflix@gmail.com.vn</p></div></div>
+        <div class="footer__info">
+            <div class="footer__download">
+                <h2>Download Our App</h2>
+                <img src="img/footer__apple.svg" alt="">
+                <img src="img/footer__android.png" alt="">
+            </div>
+            <div class="footer__link">
+                <h2>Nội dung</h2>
+                <p><a href="#phim__bo">Phim Bộ</a></p>
+                <p><a href="#phim__le">Phim Lẻ</a></p>
+                <p><a href="#phim__chieu__rap">Phim Chiếu Rạp</a></p>
+                <p><a href="#phim__hoat__hinh">Phim Hoạt Hình</a></p>
+            </div>
+            <div class="footer__legal">
+                <h2>Legal</h2>
+                <p>Terms of Use</p>
+                <p>Privacy Policy</p>
+                <p>Security</p>
+            </div>
+            <div class="footer__contact">
+                <h2>Liên Hệ | Hợp Tác</h2>
+                <p>+(84) 1900 1000</p>
+                <p>Email: netflix@gmail.com.vn</p>
+                <div class="contact__social">
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-youtube"></i>
+                </div>
+            </div>
+        </div>
+    </div>
     </div>
 
     <div class="load">loading</div>
 
-    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/12.6.0/firebase-auth-compat.js"></script>
 
     <script src="fpt.js"></script>
     <script src="review.js"></script>
 </body>
+
 </html>
