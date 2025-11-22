@@ -1249,19 +1249,20 @@ video{
     margin-bottom: 15px;
 }
 
+/* Tìm đoạn này trong fpt.css */
 .star__rating i {
-    font-size: 40px;
-    color: #2D2D2D;
+    font-size: 25px;
+    color: #888; /* <--- SỬA THÀNH MÀU NÀY (Xám sáng) */
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: color 0.2s;
+    margin: 0 2px;
 }
 
-.star__rating i:hover,
-.star__rating i.active {
-    color: #ffc107;
-    transform: scale(1.2);
+/* Màu khi rê chuột hoặc đã chọn */
+.star__rating i.hovered,
+.star__rating i.selected {
+    color: #ffcc00; /* Màu vàng */
 }
-
 .rating__message {
     color: #8F9598;
     font-size: 14px;
@@ -1613,6 +1614,27 @@ video{
 /* Class ẩn */
 .hide {
     display: none !important;
+}
+/* ===== STYLE CHO RATING ===== */
+.star__rating i {
+    font-size: 25px;
+    color: #444; /* Màu xám khi chưa chọn */
+    cursor: pointer;
+    transition: color 0.2s;
+    margin: 0 2px;
+}
+
+/* Khi rê chuột vào hoặc đã chọn -> Màu vàng */
+.star__rating i.hovered,
+.star__rating i.selected {
+    color: #ffcc00; /* Màu vàng */
+}
+
+.rating__message {
+    font-size: 13px;
+    color: #888;
+    margin-top: 5px;
+    font-style: italic;
 }
 
 }

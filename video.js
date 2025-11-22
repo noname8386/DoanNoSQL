@@ -211,8 +211,16 @@ function showControls() {
   videoControls.classList.remove('hide');
 }
 
-
 function key(event) {
+  const element = document.activeElement;
+  const tagName = element.tagName.toUpperCase();
+  const isEditable = element.isContentEditable || tagName === 'INPUT' || tagName === 'TEXTAREA';
+
+  if (isEditable) {
+    return;
+  }
+  // ----------------------------------
+
   const { key } = event;
   switch(key) {
     case 'k':
