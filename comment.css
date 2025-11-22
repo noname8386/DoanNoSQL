@@ -1,0 +1,189 @@
+/* comment.css - Style chuẩn cho bình luận giống Facebook */
+
+/* 1. Cấu trúc chung */
+.comment__item {
+    margin-bottom: 5px;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.comment__flex-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px; /* Khoảng cách giữa avatar và nội dung */
+}
+
+/* 2. Avatar */
+.comment__avatar-img {
+    flex-shrink: 0; /* Không bị co lại */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-family: sans-serif;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    background-color: #555; /* Màu mặc định nếu chưa load JS */
+}
+
+/* 3. Bong bóng nội dung */
+.comment__box {
+    background-color: #3A3B3C;
+    padding: 8px 12px;
+    border-radius: 18px;
+    display: inline-block;
+    min-width: 150px;
+    color: #E4E6EB;
+    position: relative;
+}
+
+.comment__author {
+    display: block;
+    font-weight: 600;
+    font-size: 13px;
+    color: #E4E6EB !important;
+    margin-bottom: 2px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Sửa lỗi ô đen khi hover vào tên */
+.comment__author:hover {
+    text-decoration: underline;
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+.comment__text {
+    font-size: 15px;
+    line-height: 1.4;
+    margin: 0;
+    word-wrap: break-word;
+}
+
+/* 4. Thanh hành động (Like, Reply) */
+.comment__actions {
+    margin-left: 12px;
+    margin-top: 4px;
+    font-size: 12px;
+    color: #B0B3B8;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Reset nút bấm để không bị dính style của video player */
+.action-btn {
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    font-size: 12px !important;
+    font-weight: 600;
+    color: #B0B3B8;
+    cursor: pointer;
+    box-shadow: none !important;
+}
+
+/* Ẩn tooltip đen của video player nếu bị dính */
+.action-btn::before, .action-btn::after {
+    display: none !important;
+}
+
+.action-btn:hover {
+    text-decoration: underline;
+    color: #E4E6EB;
+}
+
+.action-btn.active {
+    color: #ff55a5;
+    font-weight: bold;
+}
+
+/* 5. Form nhập Reply (Thẳng hàng) */
+.reply-input-container {
+    margin-top: 8px;
+    display: none; /* Mặc định ẩn */
+    width: 100%;
+    animation: fadeIn 0.3s;
+}
+
+.reply-input-wrapper {
+    display: flex;
+    align-items: center;
+    background-color: #3A3B3C;
+    border-radius: 20px;
+    padding: 5px 15px;
+    border: 1px solid transparent;
+    width: 100%;
+}
+
+.reply-input-wrapper:focus-within {
+    border-color: #666;
+}
+
+.reply-input {
+    flex: 1; /* Chiếm hết chỗ trống */
+    background: transparent;
+    border: none;
+    padding: 5px 0;
+    color: white;
+    outline: none;
+    font-size: 14px;
+}
+
+.reply-send-btn {
+    background: none !important;
+    border: none !important;
+    color: #ff55a5;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 0 0 0 10px;
+    display: flex;
+    align-items: center;
+    box-shadow: none !important;
+}
+
+/* 6. Danh sách Reply con */
+.reply-list {
+    margin-left: 50px; /* Thụt đầu dòng */
+    margin-top: 5px;
+}
+.action-btn.edit:hover { color: #fff; text-decoration: underline; }
+.action-btn.delete { color: #d33; } /* Màu đỏ cho nút xóa */
+.action-btn.delete:hover { color: #ff0000; text-decoration: underline; }
+
+/* Form Sửa bình luận (Mặc định ẩn) */
+.edit-input-container {
+    display: none; /* Ẩn đi */
+    margin-top: 5px;
+    width: 100%;
+}
+
+/* Tinh chỉnh ô nhập khi sửa để nó nằm gọn trong bong bóng chat */
+.edit-input-container .reply-input-wrapper {
+    background-color: #222; /* Màu tối hơn chút */
+    border: 1px solid #555;
+    padding: 2px 10px;
+}
+
+.edit-input-container input {
+    font-size: 14px;
+    color: white;
+}
+.comment__box.deleted {
+    background-color: #2a2a2a;
+    border: 1px dashed #555;
+    color: #777;
+    font-style: italic;
+}
+
+.comment__text.deleted-text {
+    color: #888;
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web xem phim online</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="fpt.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="base.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <script>
+        $(document).ready(function () {
+            $("a").on('click', function (event) {
+                if (this.hash !== "") {
+                    event.preventDefault();
+                    var hash = this.hash;
+                    $('html, body').animate({ scrollTop: $(hash).offset().top }, 800, function () { window.location.hash = hash; });
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="header">
+        <div class="header__logo" onclick="window.location.href='fpt.html'"><img src="img/logo.svg"></div>
+        <div class="header__menu">
+            <div class="header__items" onclick="window.location.href='fpt.html'">trang chủ</div>
+            <div class="header__items">Phim bộ</div>
+            <div class="header__items">phim lẻ</div>
+            <div class="header__items">phim chiếu rạp</div>
+            <div class="header__items">phim hoạt hình</div>
+        </div>
+        <div class="header__account" onclick="window.location.href='login.html'">Login</div>
+    </div>
+
+    <div class="slider" id="a">
+        <div class="slide__show">
+            <div class="slide__list">
+                <div class="slide slide--1"><div class="slide__content"><h2>Ký ức Alhambra</h2></div></div>
+                <div class="slide slide--2"><div class="slide__content"><h2>Ký ức Alhambra</h2></div></div>
+                <div class="slide slide--3"><div class="slide__content"><h2>Ký ức Alhambra</h2></div></div>
+                <div class="slide slide--4"><div class="slide__content"><h2>Ký ức Alhambra</h2></div></div>
+                <div class="slide slide--5"><div class="slide__content"><h2>Ký ức Alhambra</h2></div></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="film__area__title">ĐỀ CỬ</div>
+    <div class="film__area film__area--home">
+        <div class="film__area__img"></div>
+        <div class="top__phim__bo top__phim"><h2 class="top__phim__title">TOP PHIM BỘ</h2><div class="top__phim__bo__area top__phim__area"></div></div>
+        <div class="top__phim__le top__phim"><h2 class="top__phim__title">TOP PHIM LẺ</h2><div class="top__phim__le__area top__phim__area"></div></div>
+        <div class="top__phim__chieu__rap top__phim"><h2 class="top__phim__title">TOP CHIẾU RẠP</h2><div class="top__phim__chieu__rap__area top__phim__area"></div></div>
+        <div class="top__phim__hoat__hinh top__phim"><h2 class="top__phim__title">TOP HOẠT HÌNH</h2><div class="top__phim__hoat__hinh__area top__phim__area"></div></div>
+    </div>
+
+    <div class="film__area--add film__area--phim__bo">
+        <div class="fim__area__intro">PHIM BỘ</div><div class="film__area__box film__area__box--phim__bo"></div><div class="phim__area__next" onclick="fill__next(this,4);">Show</div>
+    </div>
+    <div class="film__area--add film__area--phim__le">
+        <div class="fim__area__intro">PHIM LẺ</div><div class="film__area__box film__area__box--phim__le"></div><div class="phim__area__next" onclick="fill__next(this,5);">Show</div>
+    </div>
+
+    <div class="footer">
+        <div class="footer__info"><div class="footer__contact"><h2>Liên Hệ</h2><p>Email: netflix@gmail.com.vn</p></div></div>
+    </div>
+
+    <div class="load">loading</div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
+
+    <script src="fpt.js"></script>
+    <script src="review.js"></script>
+</body>
+</html>

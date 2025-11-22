@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Xem Phim</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="video.css">
+    <link rel="stylesheet" href="fpt.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="comment.css">
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+    <div class="header" style="position: fixed; top: 0; width: 100%; z-index: 10000;">
+        <div class="header__logo" onclick="window.location.href='fpt.html'">
+            <img src="img/logo.svg" alt="Logo">
+        </div>
+        <div class="header__menu">
+            <div class="header__items" onclick="window.location.href='fpt.html'">Trang chủ</div>
+        </div>
+        <div class="header__account">LOGIN</div>
+    </div>
+
+    <div class="play__area">
+        <div class="play">
+            <div class="container">
+                <div class="video-container" id="video-container">
+                    
+                    <div class="playback-animation" id="playback-animation" onclick="togglePlayIcon()">
+                         <i id="play-icon2" class="fas fa-play" style="color:white; font-size:30px;"></i>
+                    </div>
+                    
+                    <video class="video" id="video" preload="metadata" poster="img/1.jpg" style="width: 100%; height: 500px; display: block;">
+                        <source src="img/video1.mp4" type="video/mp4">
+                    </video>
+                    
+                    <div class="video-controls hidden" id="video-controls">
+                        <div class="left-controls">
+                            <button id="play" title="Play" onclick="togglePlayIcon()">
+                                 <i id="play-icon" class="fas fa-play" style="color:white; font-size:30px;"></i>
+                            </button>
+                            <div class="volume-controls">
+                                <button id="volume-button" title="Mute" onclick="toggleVolumeIcon()">
+                                    <i id="volume-icon" class="fas fa-volume-up"></i>
+                                </button>
+                                <input class="volume" id="volume" value="1" type="range" max="1" min="0" step="0.01">
+                            </div>
+                            <div class="time">
+                                <time id="time-elapsed">00:00</time> / <time id="duration">00:00</time>
+                            </div>
+                        </div>
+
+                        <div class="video-progress">
+                            <progress id="progress-bar" value="0" min="0"></progress>
+                            <input class="seek" id="seek" value="0" min="0" type="range" step="1">
+                            <div class="seek-tooltip" id="seek-tooltip">00:00</div>
+                        </div>
+
+                        <div class="right-controls">
+                            <button id="pip-button" title="PIP"><i class="fas fa-compress-alt"></i></button>
+                            <button id="fullscreen-button" title="Fullscreen"><i class="fas fa-expand"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p class="tap__title">Tập Phim</p>
+        <div class="tap__phim">
+            <div class="tap tap__active" onclick="changeEpisode(1)">Tập 1</div>
+            <div class="tap" onclick="changeEpisode(2)">Tập 2</div>
+        </div>
+
+        <div class="play__info">
+            <div class="info__img" id="filmPoster"></div>
+            <div class="info__content">
+                <h3 id="filmTitle">Đang tải...</h3>
+                <p><span>Original Title</span></p>
+                <p style="color: #A3A3A3;">Nội dung:</p>
+                <p id="filmDesc">...</p>
+                
+                <div class="user__rating" style="margin-top: 20px; border-top: 1px solid #333; padding-top: 15px;">
+                    <h4>Đánh giá</h4>
+                    <div class="star__rating" id="starList">
+                        <i class="fas fa-star" onclick="submitRating(1)" onmouseover="hoverStar(1)" onmouseout="resetStar()"></i>
+                        <i class="fas fa-star" onclick="submitRating(2)" onmouseover="hoverStar(2)" onmouseout="resetStar()"></i>
+                        <i class="fas fa-star" onclick="submitRating(3)" onmouseover="hoverStar(3)" onmouseout="resetStar()"></i>
+                        <i class="fas fa-star" onclick="submitRating(4)" onmouseover="hoverStar(4)" onmouseout="resetStar()"></i>
+                        <i class="fas fa-star" onclick="submitRating(5)" onmouseover="hoverStar(5)" onmouseout="resetStar()"></i>
+                    </div>
+                    <p class="rating-text" id="ratingMessage" style="color: #888; font-size: 13px; margin-top: 5px;">Chọn số sao</p>
+                    <p style="color: #ff55a5; font-size: 14px; margin-top: 5px;">TB: <span id="averageRating">--</span>/5 (<span id="totalReviews">0</span>)</p>
+                </div>
+            </div>
+            <div class="play__info1">
+                <p><span>Số tập</span> 14/16</p>
+                <p><span>Thời lượng</span> 60 phút</p>
+                <p><span>Quốc gia</span> Hàn Quốc</p>
+                <p><span>Thể loại</span> Tình cảm</p>
+                <p><span>Phát hành</span> 2020</p>
+            </div>
+        </div>
+
+        <div class="review__section">
+            <div class="comments__section">
+                <h3 class="section__title">Bình Luận <span class="comment__count" id="commentCount">(0)</span></h3>
+                <div class="add__comment">
+                    <div class="comment__avatar"><i class="fas fa-user-circle"></i></div>
+                    <div class="comment__form">
+                        <textarea id="commentInput" placeholder="Viết bình luận..." rows="3"></textarea>
+                        <div class="form__actions">
+                            <button class="btn__submit" onclick="submitComment()">Gửi</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="comments__list" id="commentsList">
+                    <p style="text-align:center; color: #777;">Đang tải bình luận...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
+
+    <script src="video.js"></script>
+    <script src="review.js"></script>
+    
+    <script>
+        function changeEpisode(num) {
+            const video = document.getElementById('video');
+            // Link video mẫu hoạt hình để test
+            const src = num === 1 ? 
+                "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" : 
+                "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4";
+            video.src = src;
+            video.load();
+            video.play();
+            
+            // Đổi màu tập phim đang chọn
+            document.querySelectorAll('.tap').forEach(e => e.classList.remove('tap__active'));
+            event.target.classList.add('tap__active');
+        }
+        function togglePlayIcon() {
+            const icon = document.getElementById("play-icon");
+            icon.classList.toggle("fa-play");
+            icon.classList.toggle("fa-pause");
+        }
+        function toggleVolumeIcon() {
+            const icon = document.getElementById("volume-icon");
+            icon.classList.toggle("fa-volume-up");
+            icon.classList.toggle("fa-volume-mute");
+        }
+    </script>
+</body>
+</html>
